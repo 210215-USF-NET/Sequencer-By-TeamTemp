@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MixerDL\MixerDL.csproj" />
+    <ProjectReference Include="..\MixerModels\MixerModels.csproj" />
+  </ItemGroup>
 </Project>
