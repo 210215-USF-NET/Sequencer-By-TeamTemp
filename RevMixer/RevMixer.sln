@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MixerBL", "MixerBL\MixerBL.csproj", "{9AE05465-F637-45D1-801B-20AD79341E26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MixerBL", "MixerBL\MixerBL.csproj", "{9AE05465-F637-45D1-801B-20AD79341E26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MixerDL", "MixerDL\MixerDL.csproj", "{AFAC2700-5B91-4E0E-A9A2-BAEF279AC110}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MixerDL", "MixerDL\MixerDL.csproj", "{AFAC2700-5B91-4E0E-A9A2-BAEF279AC110}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MixerModels", "MixerModels\MixerModels.csproj", "{E04EC360-8C04-4767-A3F9-548020529B81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MixerModels", "MixerModels\MixerModels.csproj", "{E04EC360-8C04-4767-A3F9-548020529B81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MixerTest", "MixerTest\MixerTest.csproj", "{2001E601-EEB1-4A59-B032-04ADB4F55B30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MixerTest", "MixerTest\MixerTest.csproj", "{2001E601-EEB1-4A59-B032-04ADB4F55B30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MixerAPI", "MixerAPI\MixerAPI.csproj", "{491A8FF5-2D40-41AD-B816-44BD13770A31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MixerREST", "MixerAPI\MixerREST.csproj", "{491A8FF5-2D40-41AD-B816-44BD13770A31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

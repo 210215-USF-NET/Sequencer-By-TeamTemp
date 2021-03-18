@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MixerAPI.Controllers
+namespace MixerREST.Controllers
 {
     [ApiController]
     [Route("[controller]")]

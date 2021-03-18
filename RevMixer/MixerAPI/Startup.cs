@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MixerAPI
+namespace MixerREST
 {
     public class Startup
     {
@@ -26,11 +26,10 @@ namespace MixerAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MixerAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MixerREST", Version = "v1" });
             });
         }
 
@@ -41,7 +40,7 @@ namespace MixerAPI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MixerAPI v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MixerREST v1"));
             }
 
             app.UseHttpsRedirection();

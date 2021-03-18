@@ -1,6 +1,6 @@
 using System;
 
-namespace MixerAPI
+namespace MixerREST
 {
     public class WeatherForecast
     {

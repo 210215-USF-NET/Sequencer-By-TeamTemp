@@ -199,9 +199,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerAPI\\MixerAPI.csproj",
-      "projectName": "MixerAPI",
-      "projectPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerAPI\\MixerAPI.csproj",
+      "projectUniqueName": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerAPI\\MixerREST.csproj",
+      "projectName": "MixerREST",
+      "projectPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerAPI\\MixerREST.csproj",
       "packagesPath": "C:\\Users\\mtwil\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerAPI\\obj\\",
       "projectStyle": "PackageReference",
