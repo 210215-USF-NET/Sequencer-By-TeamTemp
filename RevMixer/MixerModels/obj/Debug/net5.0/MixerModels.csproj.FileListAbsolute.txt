@@ -1,0 +1,12 @@
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerModels\bin\Debug\net5.0\MixerModels.deps.json
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerModels\bin\Debug\net5.0\MixerModels.dll
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerModels\bin\Debug\net5.0\ref\MixerModels.dll
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerModels\bin\Debug\net5.0\MixerModels.pdb
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerModels\obj\Debug\net5.0\MixerModels.csprojAssemblyReference.cache
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerModels\obj\Debug\net5.0\MixerModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerModels\obj\Debug\net5.0\MixerModels.AssemblyInfoInputs.cache
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerModels\obj\Debug\net5.0\MixerModels.AssemblyInfo.cs
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerModels\obj\Debug\net5.0\MixerModels.csproj.CoreCompileInputs.cache
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerModels\obj\Debug\net5.0\MixerModels.dll
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerModels\obj\Debug\net5.0\ref\MixerModels.dll
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerModels\obj\Debug\net5.0\MixerModels.pdb
