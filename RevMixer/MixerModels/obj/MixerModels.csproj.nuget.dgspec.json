@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj": {}
+    "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj": {
+    "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj",
+        "projectUniqueName": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj",
         "projectName": "MixerModels",
-        "projectPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj",
-        "packagesPath": "C:\\Users\\mtwil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\obj\\",
+        "projectPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj",
+        "packagesPath": "C:\\Users\\Westo\\.nuget\\packages\\",
+        "outputPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\mtwil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Westo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"

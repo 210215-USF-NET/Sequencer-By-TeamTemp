@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerTest\\MixerTest.csproj": {}
+    "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerTest\\MixerTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerBL\\MixerBL.csproj": {
+    "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerBL\\MixerBL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerBL\\MixerBL.csproj",
+        "projectUniqueName": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerBL\\MixerBL.csproj",
         "projectName": "MixerBL",
-        "projectPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerBL\\MixerBL.csproj",
-        "packagesPath": "C:\\Users\\mtwil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerBL\\obj\\",
+        "projectPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerBL\\MixerBL.csproj",
+        "packagesPath": "C:\\Users\\Westo\\.nuget\\packages\\",
+        "outputPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerBL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\mtwil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Westo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -32,11 +34,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\MixerDL.csproj": {
-                "projectPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\MixerDL.csproj"
+              "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\MixerDL.csproj": {
+                "projectPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\MixerDL.csproj"
               },
-              "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj": {
-                "projectPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj"
+              "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj": {
+                "projectPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj"
               }
             }
           }
@@ -69,22 +71,24 @@
         }
       }
     },
-    "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\MixerDL.csproj": {
+    "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\MixerDL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\MixerDL.csproj",
+        "projectUniqueName": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\MixerDL.csproj",
         "projectName": "MixerDL",
-        "projectPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\MixerDL.csproj",
-        "packagesPath": "C:\\Users\\mtwil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\obj\\",
+        "projectPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\MixerDL.csproj",
+        "packagesPath": "C:\\Users\\Westo\\.nuget\\packages\\",
+        "outputPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\mtwil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Westo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -145,22 +149,24 @@
         }
       }
     },
-    "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj": {
+    "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj",
+        "projectUniqueName": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj",
         "projectName": "MixerModels",
-        "projectPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj",
-        "packagesPath": "C:\\Users\\mtwil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\obj\\",
+        "projectPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj",
+        "packagesPath": "C:\\Users\\Westo\\.nuget\\packages\\",
+        "outputPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\mtwil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Westo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -203,22 +209,24 @@
         }
       }
     },
-    "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerTest\\MixerTest.csproj": {
+    "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerTest\\MixerTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerTest\\MixerTest.csproj",
+        "projectUniqueName": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerTest\\MixerTest.csproj",
         "projectName": "MixerTest",
-        "projectPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerTest\\MixerTest.csproj",
-        "packagesPath": "C:\\Users\\mtwil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerTest\\obj\\",
+        "projectPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerTest\\MixerTest.csproj",
+        "packagesPath": "C:\\Users\\Westo\\.nuget\\packages\\",
+        "outputPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\mtwil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Westo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -231,14 +239,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerBL\\MixerBL.csproj": {
-                "projectPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerBL\\MixerBL.csproj"
+              "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerBL\\MixerBL.csproj": {
+                "projectPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerBL\\MixerBL.csproj"
               },
-              "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\MixerDL.csproj": {
-                "projectPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\MixerDL.csproj"
+              "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\MixerDL.csproj": {
+                "projectPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerDL\\MixerDL.csproj"
               },
-              "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj": {
-                "projectPath": "C:\\Users\\mtwil\\OneDrive\\Desktop\\Revature\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj"
+              "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj": {
+                "projectPath": "C:\\Revature training repositories\\RevMixer-P2\\Sequencer-By-TeamTemp\\RevMixer\\MixerModels\\MixerModels.csproj"
               }
             }
           }
