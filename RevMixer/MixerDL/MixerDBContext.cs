@@ -13,7 +13,7 @@ namespace MixerDL
     /// </summary>
     public class MixerDBContext : DbContext
     {
-        public MixerDBContext(DbContextOptions options) :base(options)
+        public MixerDBContext(DbContextOptions options) : base(options)
         {
         }
         protected MixerDBContext()
@@ -29,5 +29,26 @@ namespace MixerDL
         public DbSet<UploadMusic> UploadMusic { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<UserProject> UserProject { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Comments>()
+                .Property(x => x.Id)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<MusicPlaylist>()
+                .Property(x => x.Id)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Pattern>()
+                .Property(x => x.Id)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<MusicPlaylist>()
+                .Property(x => x.Id)
+                .ValueGeneratedOnAdd();
+
+        }
+
     }
 }
