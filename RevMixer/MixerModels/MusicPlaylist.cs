@@ -10,6 +10,11 @@ namespace MixerModels
     {
         public int Id { get; set; }
         public int PlayListId { get; set; }
+
+        public PlayList PlayList { get; set; }
+
+        public UploadMusic UploadMusic { get; set; }
+
         public int MusicId { get; set; }
     }
 }

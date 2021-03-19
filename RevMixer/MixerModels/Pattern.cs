@@ -10,6 +10,8 @@ namespace MixerModels
     public class Pattern
     {
         public int Id { get; set; }
-        public Blob PatternData { get; set; }
+        public string PatternData { get; set; }
+
+        public ICollection<Track> Tracks { get; set; }
     }
 }

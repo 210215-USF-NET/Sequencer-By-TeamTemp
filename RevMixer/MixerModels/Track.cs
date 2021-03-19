@@ -10,9 +10,16 @@ namespace MixerModels
     {
         public int Id { get; set; }
         public int ProjectId { get; set; }
+
+        public SavedProject SavedProject { get; set; }
+
+        public Sample Sample { get; set; }
+
+        public Pattern Pattern { get; set; }
+
         public int SampleId { get; set; }
         public int PatternId { get; set; }
 
-        public Pattern Pattern { get; set; }
+
     }
 }

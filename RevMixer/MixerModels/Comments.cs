@@ -12,6 +12,11 @@ namespace MixerModels
         public string Comment { get; set; }
         public DateTime CommentData { get; set; }
         public int UserId { get; set; } //fk
+
+        public User User { get; set; }
+
         public int UploadMusicId { get; set; } //fk
+
+        public UploadMusic UploadedMusic { get; set; }
     }
 }

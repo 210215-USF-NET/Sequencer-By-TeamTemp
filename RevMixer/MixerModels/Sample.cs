@@ -12,7 +12,7 @@ namespace MixerModels
         public int Id { get; set; }
         public int UserId { get; set; }
         public string SampleName { get; set; }
-        public Blob SampleData { get; set; }
+        public string SampleLink { get; set; }
 
         public ICollection<Track> Track { get; set; }
     }
