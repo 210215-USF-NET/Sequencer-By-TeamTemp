@@ -27,7 +27,7 @@ The purpose of RevMixer is to allow users to utilize a sequencer to compose, pla
 1. A user can share their projects with other musicians to collaborate on
 
 ## ER Diagram
-![ER Diagram](P2 ER Diagram(2).jpg)
+![ER Diagram](ER.jpg)
 
 ## Tech Stack
 - C#
