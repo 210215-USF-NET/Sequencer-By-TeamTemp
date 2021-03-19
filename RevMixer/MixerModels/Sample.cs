@@ -14,6 +14,7 @@ namespace MixerModels
         public string SampleName { get; set; }
         public string SampleLink { get; set; }
 
+        public User User { get; set; }
         public ICollection<Track> Track { get; set; }
     }
 }
