@@ -10,3 +10,6 @@ C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerDL\
 C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerDL\obj\Debug\net5.0\MixerDL.dll
 C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerDL\obj\Debug\net5.0\ref\MixerDL.dll
 C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerDL\obj\Debug\net5.0\MixerDL.pdb
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerDL\bin\Debug\net5.0\MixerDL.runtimeconfig.json
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerDL\bin\Debug\net5.0\MixerDL.runtimeconfig.dev.json
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerDL\obj\Debug\net5.0\MixerDL.genruntimeconfig.cache

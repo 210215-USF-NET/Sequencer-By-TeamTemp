@@ -10,3 +10,8 @@ C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerBL\
 C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerBL\obj\Debug\net5.0\MixerBL.dll
 C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerBL\obj\Debug\net5.0\ref\MixerBL.dll
 C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerBL\obj\Debug\net5.0\MixerBL.pdb
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerBL\bin\Debug\net5.0\MixerDL.dll
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerBL\bin\Debug\net5.0\MixerModels.dll
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerBL\bin\Debug\net5.0\MixerDL.pdb
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerBL\bin\Debug\net5.0\MixerModels.pdb
+C:\Users\mtwil\OneDrive\Desktop\Revature\Sequencer-By-TeamTemp\RevMixer\MixerBL\obj\Debug\net5.0\MixerBL.csproj.CopyComplete
