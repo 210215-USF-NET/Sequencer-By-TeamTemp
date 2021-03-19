@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MixerModels", "MixerModels\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MixerTest", "MixerTest\MixerTest.csproj", "{2001E601-EEB1-4A59-B032-04ADB4F55B30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MixerREST", "MixerREST\MixerREST.csproj", "{4C29BCBB-5881-4F00-B34B-F8F29A01B7B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MixerREST", "MixerREST\MixerREST.csproj", "{4C29BCBB-5881-4F00-B34B-F8F29A01B7B3}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "GUIprototype", "GUIprototype\GUIprototype.njsproj", "{8621E482-AC8D-4EAA-9425-BE63A88E0DBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{4C29BCBB-5881-4F00-B34B-F8F29A01B7B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C29BCBB-5881-4F00-B34B-F8F29A01B7B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C29BCBB-5881-4F00-B34B-F8F29A01B7B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8621E482-AC8D-4EAA-9425-BE63A88E0DBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8621E482-AC8D-4EAA-9425-BE63A88E0DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8621E482-AC8D-4EAA-9425-BE63A88E0DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8621E482-AC8D-4EAA-9425-BE63A88E0DBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
