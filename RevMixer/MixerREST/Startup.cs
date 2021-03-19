@@ -28,6 +28,22 @@ namespace MixerREST
         {
 
             services.AddControllers();
+            services.AddCors(
+                options =>
+                {
+                    options.AddPolicy(
+                       name: "RevMixerPolicy",
+                       builder =>
+                   {
+                       // when you build your frontend, set this as the angular website origin domain,
+                       // you might also need to allow the third party api you're using to access your stuff
+                       builder.WithOrigins("*")
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+                   }
+                   );
+                }
+                );
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MixerREST", Version = "v1" });
@@ -47,6 +63,8 @@ namespace MixerREST
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("RevMixerPolicy");
 
             app.UseAuthorization();
 
