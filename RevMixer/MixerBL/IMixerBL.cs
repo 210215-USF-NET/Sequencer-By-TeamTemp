@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MixerModels;
+using MixerDL;
 
 namespace MixerBL
 {
@@ -40,6 +41,27 @@ namespace MixerBL
         Task<List<Pattern>> GetPatternsAsync();
         Task<Pattern> UpdatePatternAsync(Pattern pattern2BUpdated);
 
+        Task<UserProject> AddUserProjectAsync(UserProject newUserProject);
+        Task<UserProject> DeleteUserProjectAsync(UserProject userProject2BDeleted);
+        Task<UserProject> GetUserProjectByNameAsync(string name);
+        Task<List<UserProject>> GetUserProjectsAsync();
+        Task<UserProject> UpdateUserProjectAsync(UserProject userProject2BUpdated);
 
+        Task<PlayList> AddPlayListAsync(PlayList newPlaylist);
+        Task<PlayList> DeletePlayListAsync(PlayList playlist2BDeleted);
+        Task<PlayList> GetPlayListByNameAsync(string name);
+        Task<List<PlayList>> GetPlayListsAsync();
+        Task<PlayList> UpdatePlayListAsync(PlayList playlist2BUpdated);
+
+        Task<MusicPlaylist> AddMusicPlaylistAsync(MusicPlaylist newMusicPlaylist);
+        Task<MusicPlaylist> DeleteMusicPlaylistAsync(MusicPlaylist musicPlaylist2BDeleted);
+        Task<MusicPlaylist> GetMusicPlaylistByNameAsync(string name);
+        Task<List<MusicPlaylist>> GetMusicPlaylistsAsync();
+        Task<MusicPlaylist> UpdateMusicPlaylistAsync(MusicPlaylist musicPlaylist2BUpdated);
+        Task<Comments> AddCommentAsync(Comments newComment);
+        Task<Comments> DeleteCommentAsync(Comments comment2BDeleted);
+        Task<Comments> GetCommentByNameAsync(string name);
+        Task<List<Comments>> GetCommentsAsync();
+        Task<Comments> UpdateCommentAsync(Comments comment2BUpdated);
     }
 }

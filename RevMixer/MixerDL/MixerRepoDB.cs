@@ -38,6 +38,22 @@ namespace MixerDL
         {
             throw new NotImplementedException();
         }
+        public Task<UserProject> AddUserProjectAsync(UserProject newUserProject)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<PlayList> AddPlayListAsync(PlayList newPlayList)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<MusicPlaylist> AddMusicPlaylistAsync(MusicPlaylist newMusicPlaylist)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<Comments> AddCommentAsync(Comments newComment)
+        {
+            throw new NotImplementedException();
+        }
 
         public Task<Pattern> DeletePatternAsync(Pattern pattern2BDeleted)
         {
@@ -65,6 +81,22 @@ namespace MixerDL
         }
 
         public Task<User> DeleteUserAsync(User user2BDeleted)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<UserProject> DeleteUserProjectAsync(UserProject userProject2BDeleted)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<PlayList> DeletePlayListAsync(PlayList playList2BDeleted)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<MusicPlaylist> DeleteMusicPlaylistAsync(MusicPlaylist musicPlaylist2BDeleted)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<Comments> DeleteCommentAsync(Comments comment2BDeleted)
         {
             throw new NotImplementedException();
         }
@@ -128,6 +160,42 @@ namespace MixerDL
         {
             throw new NotImplementedException();
         }
+        public Task<UserProject> GetUserProjectByNameAsync(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<UserProject>> GetUserProjectsAsync()
+        {
+            throw new NotImplementedException();
+        }
+        public Task<PlayList> GetPlayListByNameAsync(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<PlayList>> GetPlayListsAsync()
+        {
+            throw new NotImplementedException();
+        }
+        public Task<MusicPlaylist> GetMusicPlaylistByNameAsync(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<MusicPlaylist>> GetMusicPlaylistsAsync()
+        {
+            throw new NotImplementedException();
+        }
+        public Task<Comments> GetCommentByNameAsync(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<Comments>> GetCommentsAsync()
+        {
+            throw new NotImplementedException();
+        }
 
         public Task<Pattern> UpdatePatternAsync(Pattern pattern2BUpdated)
         {
@@ -155,6 +223,22 @@ namespace MixerDL
         }
 
         public Task<User> UpdateUserAsync(User user2BUpdated)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<UserProject> UpdateUserProjectAsync(UserProject userProject2BUpdated)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<PlayList> UpdatePlayListAsync(PlayList playList2BUpdated)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<MusicPlaylist> UpdateMusicPlaylistAsync(MusicPlaylist musicPlaylist2BUpdated)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<Comments> UpdateCommentAsync(Comments comment2BUpdated)
         {
             throw new NotImplementedException();
         }
