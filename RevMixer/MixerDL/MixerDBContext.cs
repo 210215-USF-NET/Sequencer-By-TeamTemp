@@ -120,13 +120,63 @@ namespace MixerDL
                 .WithOne(pl => pl.User)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            //---------------------------------------------------------------------------
+            //-------------------------------------end of user relations--------------------------------------
+
+
+            //a playlist can have many musicplaylist (songs), but a musicplaylist (song) can only belong to one playlist
+            //when a playlist is deleted, remove musicplaylist entries
+            modelBuilder.Entity<PlayList>()
+                .HasMany(p => p.MusicPlaylist)
+                .WithOne(mp => mp.PlayList)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            //uploaded music can belong to many musicplaylists, but a musicplaylist can only have one uploaded song
+            //when someone deletes a song, remove the song from musicplaylist
+            modelBuilder.Entity<UploadMusic>()
+                .HasMany(um => um.MusicPlaylists)
+                .WithOne(mp => mp.UploadMusic)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
+            //uploaded music can have many comments, but a comment can only be posted on one piece of music
+            //when a song is deleted, remove it's comments as well
+            modelBuilder.Entity<UploadMusic>()
+                .HasMany(um => um.Comments)
+                .WithOne(c => c.UploadedMusic)
+                .OnDelete(DeleteBehavior.Cascade);
 
 
 
+            //a sample can have many tracks, but a track can only have one sample
+            //if a sample is deleted, don't delete the whole track
+            modelBuilder.Entity<Sample>()
+                .HasMany(s => s.Track)
+                .WithOne(t => t.Sample)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            //a pattern can belong to many tracks, but a track can only have one pattern
+            //even if a pattern is deleted, we don't necessarily want to delete the track
+            modelBuilder.Entity<Pattern>()
+                .HasMany(p => p.Tracks)
+                .WithOne(t => t.Pattern)
+                .OnDelete(DeleteBehavior.SetNull);
 
 
+            //a saved project can have many userprojects (users who can edit one project), but a userproject can only have one project reference
+            //when a project is deleted (only allowed by owner, ideally), the associated users who can edit will have access revoked from
+            //the now non-existant project
+            modelBuilder.Entity<SavedProject>()
+                .HasMany(sp => sp.UserProjects)
+                .WithOne(up => up.SavedProject)
+                .OnDelete(DeleteBehavior.Cascade);
 
+
+            //a saved project can have many tracks, but a track can only belong to one project
+            //when a project is deleted, it's related tracks are also deleted
+            modelBuilder.Entity<SavedProject>()
+                .HasMany(sp => sp.Tracks)
+                .WithOne(t => t.SavedProject)
+                .OnDelete(DeleteBehavior.Cascade);
 
 
 
