@@ -47,17 +47,21 @@ namespace MixerREST
                 }
                 );
 
-            services.AddDbContext<MixerDBContext>(
-                    options =>
-                    options.UseNpgsql(Configuration.GetConnectionString("StoreDB")
-                    ),
-                    ServiceLifetime.Scoped
-                    );
+
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MixerREST", Version = "v1" });
             });
+
+
+            services.AddDbContext<MixerDBContext>(
+                options =>
+                options.UseNpgsql(Configuration.GetConnectionString("StoreDB")
+                ),
+                ServiceLifetime.Scoped
+                );
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

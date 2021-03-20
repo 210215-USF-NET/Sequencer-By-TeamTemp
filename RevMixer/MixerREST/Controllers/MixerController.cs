@@ -29,22 +29,27 @@ namespace MixerREST.Controllers
         {
             return Ok(await _mixerBL.GetUploadedMusicAsync());
         }
+        [HttpGet]
         public async Task<IActionResult> GetUsersAsync()
         {
             return Ok(await _mixerBL.GetUsersAsync());
         }
+        [HttpGet]
         public async Task<IActionResult> GetSavedProjectsAsync()
         {
             return Ok(await _mixerBL.GetSavedProjectsAsync());
         }
+        [HttpGet]
         public async Task<IActionResult> GetSamplesAsync()
         {
             return Ok(await _mixerBL.GetSamplesAsync());
         }
+        [HttpGet]
         public async Task<IActionResult> GetTracksAsync()
         {
             return Ok(await _mixerBL.GetTracksAsync());
         }
+        [HttpGet]
         public async Task<IActionResult> GetPatternsAsync()
         {
             return Ok(await _mixerBL.GetPatternsAsync());
@@ -54,34 +59,44 @@ namespace MixerREST.Controllers
         [Produces("application/json")]
         public async Task<IActionResult> GetUploadedMusicByNameAsync(string name)
         {
-            var uploadedMusic = await _mixerBL.GetUploadeMusicByNameAsync(name);
+            var uploadedMusic = await _mixerBL.GetUploadedMusicByNameAsync(name);
             if (uploadedMusic == null) return NotFound();
             return Ok(uploadedMusic);
         }
+        [HttpGet("{name}")]
+        [Produces("application/json")]
         public async Task<IActionResult> GetUserByNameAsync(string name)
         {
             var user = await _mixerBL.GetUserByNameAsync(name);
             if (user == null) return NotFound();
             return Ok(user);
         }
+        [HttpGet("{name}")]
+        [Produces("application/json")]
         public async Task<IActionResult> GetSavedProjectByNameAsync(string name)
         {
             var user = await _mixerBL.GetSavedProjectByNameAsync(name);
             if (user == null) return NotFound();
             return Ok(user);
         }
+        [HttpGet("{name}")]
+        [Produces("application/json")]
         public async Task<IActionResult> GetSampleByNameAsync(string name)
         {
             var user = await _mixerBL.GetSampleByNameAsync(name);
             if (user == null) return NotFound();
             return Ok(user);
         }
+        [HttpGet("{name}")]
+        [Produces("application/json")]
         public async Task<IActionResult> GetTrackByNameAsync(string name)
         {
             var user = await _mixerBL.GetTrackByNameAsync(name);
             if (user == null) return NotFound();
             return Ok(user);
         }
+        [HttpGet("{name}")]
+        [Produces("application/json")]
         public async Task<IActionResult> GetPatternByNameAsync(string name)
         {
             var user = await _mixerBL.GetPatternByNameAsync(name);
@@ -92,7 +107,7 @@ namespace MixerREST.Controllers
         // POST api/<HeroController>
         [HttpPost]
         [Consumes("application/json")]
-        public async Task<IActionResult> AddUploadedMusicAsync([FromBody] UploadedMusic uploadedMusic)
+        public async Task<IActionResult> AddUploadedMusicAsync([FromBody] UploadMusic uploadedMusic)
         {
             try
             {
@@ -104,7 +119,9 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
-        public async Task<IActionResult> AddUserAsync([FromBody] User User)
+        [HttpPost]
+        [Consumes("application/json")]
+        public async Task<IActionResult> AddUserAsync([FromBody] User user)
         {
             try
             {
@@ -116,6 +133,8 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
+        [HttpPost]
+        [Consumes("application/json")]
         public async Task<IActionResult> AddSavedProjectAsync([FromBody] SavedProject savedProject)
         {
             try
@@ -128,6 +147,8 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
+        [HttpPost]
+        [Consumes("application/json")]
         public async Task<IActionResult> AddSampleAsync([FromBody] Sample sample)
         {
             try
@@ -140,6 +161,8 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
+        [HttpPost]
+        [Consumes("application/json")]
         public async Task<IActionResult> AddTrackAsync([FromBody] Track track)
         {
             try
@@ -152,6 +175,8 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
+        [HttpPost]
+        [Consumes("application/json")]
         public async Task<IActionResult> AddPatternAsync([FromBody] Pattern pattern)
         {
             try
@@ -167,7 +192,7 @@ namespace MixerREST.Controllers
 
         // PUT api/<HeroController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUploadedMusicAsync(int id, [FromBody] UploadedMusic uploadedMusic)
+        public async Task<IActionResult> UpdateUploadedMusicAsync(int id, [FromBody] UploadMusic uploadedMusic)
         {
             try
             {
@@ -179,6 +204,7 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUserAsync(int id, [FromBody] User user)
         {
             try
@@ -191,6 +217,7 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateSavedProjectAsynch(int id, [FromBody] SavedProject savedProject)
         {
             try
@@ -203,6 +230,7 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateSampleAsynch(int id, [FromBody] Sample sample)
         {
             try
@@ -215,6 +243,7 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateTrackAsynch(int id, [FromBody] Track track)
         {
             try
@@ -227,6 +256,7 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePatternAsynch(int id, [FromBody] Pattern pattern)
         {
             try
@@ -254,6 +284,7 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
+        [HttpDelete("{name}")]
         public async Task<IActionResult> DeleteUserAsync(string name)
         {
             try
@@ -266,6 +297,8 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
+
+        [HttpDelete("{name}")]
         public async Task<IActionResult> DeleteSavedProjectAsync(string name)
         {
             try
@@ -278,6 +311,7 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
+        [HttpDelete("{name}")]
         public async Task<IActionResult> DeleteSampleAsync(string name)
         {
             try
@@ -290,6 +324,7 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
+        [HttpDelete("{name}")]
         public async Task<IActionResult> DeleteTrackAsync(string name)
         {
             try
@@ -302,6 +337,7 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
+        [HttpDelete("{name}")]
         public async Task<IActionResult> DeletePatternAsync(string name)
         {
             try

@@ -8,12 +8,12 @@ namespace MixerBL
 {
     public class MixerBL : IMixerBL
     {
-        private IMixerRepository _repo;
-        public MixerBL(IMixerRepository repo)
+        private IMixerRepoDB _repo;
+        public MixerBL(IMixerRepoDB repo)
         {
             _repo = repo;
         }
-        public async Task<UploadedMusic> AddUploadedMusicAsync(UploadedMusic newUploadedMusic)
+        public async Task<UploadMusic> AddUploadedMusicAsync(UploadMusic newUploadedMusic)
         {
             //Todo: Add BL
             return await _repo.AddUploadedMusicAsync(newUploadedMusic);
@@ -43,7 +43,7 @@ namespace MixerBL
             //Todo: Add BL
             return await _repo.AddPatternAsync(newPattern);
         }
-        public async Task<UploadedMusic> DeleteUploadedMusicAsync(UploadedMusic uploadedMusic2BDeleted)
+        public async Task<UploadMusic> DeleteUploadedMusicAsync(UploadMusic uploadedMusic2BDeleted)
         {
             return await _repo.DeleteUploadedMusicAsync(uploadedMusic2BDeleted);
         }
@@ -68,7 +68,7 @@ namespace MixerBL
             return await _repo.DeletePatternAsync(pattern2BDeleted);
         }
 
-        public async Task<UploadedMusic> GetUploadedMusicByNameAsync(string name)
+        public async Task<UploadMusic> GetUploadedMusicByNameAsync(string name)
         {
             //Todo: check if the name given is not null or empty string 
             return await _repo.GetUploadedMusicByNameAsync(name);
@@ -99,7 +99,7 @@ namespace MixerBL
             return await _repo.GetPatternByNameAsync(name);
         }
 
-        public async Task<List<UploadedMusic>> GetUploadedMusicAsync()
+        public async Task<List<UploadMusic>> GetUploadedMusicAsync()
         {
             //TODO add BL
             return await _repo.GetUploadedMusicAsync();
@@ -142,17 +142,19 @@ namespace MixerBL
         {
             return await _repo.UpdateSavedProjectAsync(savedProject2BUpdated);
         }
-        public async Task<Sample> UpdateSampleAsync(Sample sample2BUpdated)
-        {
-            return await _repo.UpdateSampleAsync(sample2BUpdated);
-        }
-        public async Task<Track> UpdateTrackAsync(Tack track2BUpdated)
+
+        public async Task<Track> UpdateTrackAsync(Track track2BUpdated)
         {
             return await _repo.UpdateTrackAsync(track2BUpdated);
         }
         public async Task<Pattern> UpdatePatternAsync(Pattern pattern2BUpdated)
         {
             return await _repo.UpdatePatternAsync(pattern2BUpdated);
+        }
+
+        public Task<UploadMusic> UpdateUploadedMusicAsync(UploadMusic uploadedMusic2BUpdated)
+        {
+            throw new NotImplementedException();
         }
     }
 }
