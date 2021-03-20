@@ -43,6 +43,26 @@ namespace MixerBL
             //Todo: Add BL
             return await _repo.AddPatternAsync(newPattern);
         }
+        public async Task<UserProject> AddUserProjectAsync(UserProject newUserProject)
+        {
+            //Todo: Add BL
+            return await _repo.AddUserProjectAsync(newUserProject);
+        }
+        public async Task<PlayList> AddPlayListAsync(PlayList newPlayList)
+        {
+            //Todo: Add BL
+            return await _repo.AddPlayListAsync(newPlayList);
+        }
+        public async Task<MusicPlaylist> AddMusicPlaylistAsync(MusicPlaylist newMusicPlaylist)
+        {
+            //Todo: Add BL
+            return await _repo.AddMusicPlaylistAsync(newMusicPlaylist);
+        }
+        public async Task<Comments> AddCommentAsync(Comments newComment)
+        {
+            //Todo: Add BL
+            return await _repo.AddCommentAsync(newComment);
+        }
         public async Task<UploadMusic> DeleteUploadedMusicAsync(UploadMusic uploadedMusic2BDeleted)
         {
             return await _repo.DeleteUploadedMusicAsync(uploadedMusic2BDeleted);
@@ -67,7 +87,22 @@ namespace MixerBL
         {
             return await _repo.DeletePatternAsync(pattern2BDeleted);
         }
-
+        public async Task<UserProject> DeleteUserProjectAsync(UserProject userProject2BDeleted)
+        {
+            return await _repo.DeleteUserProjectAsync(userProject2BDeleted);
+        }
+        public async Task<PlayList> DeletePlayListAsync(PlayList playlist2BDeleted)
+        {
+            return await _repo.DeletePlayListAsync(playlist2BDeleted);
+        }
+        public async Task<MusicPlaylist> DeleteMusicPlaylistAsync(MusicPlaylist musicPlaylist2BDeleted)
+        {
+            return await _repo.DeleteMusicPlaylistAsync(musicPlaylist2BDeleted);
+        }
+        public async Task<Comments> DeleteCommentAsync(Comments comment2BDeleted)
+        {
+            return await _repo.DeleteCommentAsync(comment2BDeleted);
+        }
         public async Task<UploadMusic> GetUploadedMusicByNameAsync(string name)
         {
             //Todo: check if the name given is not null or empty string 
@@ -98,7 +133,26 @@ namespace MixerBL
             //Todo: check if the name given is not null or empty string 
             return await _repo.GetPatternByNameAsync(name);
         }
-
+        public async Task<UserProject> GetUserProjectByNameAsync(string name)
+        {
+            //Todo: check if the name given is not null or empty string 
+            return await _repo.GetUserProjectByNameAsync(name);
+        }
+        public async Task<PlayList> GetPlayListByNameAsync(string name)
+        {
+            //Todo: check if the name given is not null or empty string 
+            return await _repo.GetPlayListByNameAsync(name);
+        }
+        public async Task<MusicPlaylist> GetMusicPlaylistByNameAsync(string name)
+        {
+            //Todo: check if the name given is not null or empty string 
+            return await _repo.GetMusicPlaylistByNameAsync(name);
+        }
+        public async Task<Comments> GetCommentByNameAsync(string name)
+        {
+            //Todo: check if the name given is not null or empty string 
+            return await _repo.GetCommentByNameAsync(name);
+        }
         public async Task<List<UploadMusic>> GetUploadedMusicAsync()
         {
             //TODO add BL
@@ -129,7 +183,26 @@ namespace MixerBL
             //TODO add BL
             return await _repo.GetPatternsAsync();
         }
-
+        public async Task<List<UserProject>> GetUserProjectsAsync()
+        {
+            //TODO add BL
+            return await _repo.GetUserProjectsAsync();
+        }
+        public async Task<List<PlayList>> GetPlayListsAsync()
+        {
+            //TODO add BL
+            return await _repo.GetPlayListsAsync();
+        }
+        public async Task<List<MusicPlaylist>> GetMusicPlaylistsAsync()
+        {
+            //TODO add BL
+            return await _repo.GetMusicPlaylistsAsync();
+        }
+        public async Task<List<Comments>> GetCommentsAsync()
+        {
+            //TODO add BL
+            return await _repo.GetCommentsAsync();
+        }
         public async Task<Sample> UpdateSampleAsync(Sample sample2BUpdated)
         {
             return await _repo.UpdateSampleAsync(sample2BUpdated);
@@ -155,6 +228,22 @@ namespace MixerBL
         public Task<UploadMusic> UpdateUploadedMusicAsync(UploadMusic uploadedMusic2BUpdated)
         {
             throw new NotImplementedException();
+        }
+        public async Task<UserProject> UpdateUserProjectAsync(UserProject userProject2BUpdated)
+        {
+            return await _repo.UpdateUserProjectAsync(userProject2BUpdated);
+        }
+        public async Task<PlayList> UpdatePlayListAsync(PlayList playlist2BUpdated)
+        {
+            return await _repo.UpdatePlayListAsync(playlist2BUpdated);
+        }
+        public async Task<MusicPlaylist> UpdateMusicPlaylistAsync(MusicPlaylist musicPlaylist2BUpdated)
+        {
+            return await _repo.UpdateMusicPlaylistAsync(musicPlaylist2BUpdated);
+        }
+        public async Task<Comments> UpdateCommentAsync(Comments comment2BUpdated)
+        {
+            return await _repo.UpdateCommentAsync(comment2BUpdated);
         }
     }
 }

@@ -54,6 +54,26 @@ namespace MixerREST.Controllers
         {
             return Ok(await _mixerBL.GetPatternsAsync());
         }
+        [HttpGet]
+        public async Task<IActionResult> GetUserProjectsAsync()
+        {
+            return Ok(await _mixerBL.GetUserProjectsAsync());
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetPlayListsAsync()
+        {
+            return Ok(await _mixerBL.GetPlayListsAsync());
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetMusicPlaylistsAsync()
+        {
+            return Ok(await _mixerBL.GetMusicPlaylistsAsync());
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetCommentsAsync()
+        {
+            return Ok(await _mixerBL.GetCommentsAsync());
+        }
         // GET api/<HeroController>/Spiderman
         [HttpGet("{name}")]
         [Produces("application/json")]
@@ -100,6 +120,38 @@ namespace MixerREST.Controllers
         public async Task<IActionResult> GetPatternByNameAsync(string name)
         {
             var user = await _mixerBL.GetPatternByNameAsync(name);
+            if (user == null) return NotFound();
+            return Ok(user);
+        }
+        [HttpGet("{name}")]
+        [Produces("application/json")]
+        public async Task<IActionResult> GetUserProjectByNameAsync(string name)
+        {
+            var user = await _mixerBL.GetUserProjectByNameAsync(name);
+            if (user == null) return NotFound();
+            return Ok(user);
+        }
+        [HttpGet("{name}")]
+        [Produces("application/json")]
+        public async Task<IActionResult> GetPlaylistByNameAsync(string name)
+        {
+            var user = await _mixerBL.GetPlayListByNameAsync(name);
+            if (user == null) return NotFound();
+            return Ok(user);
+        }
+        [HttpGet("{name}")]
+        [Produces("application/json")]
+        public async Task<IActionResult> GetMusicPlaylistByNameAsync(string name)
+        {
+            var user = await _mixerBL.GetMusicPlaylistByNameAsync(name);
+            if (user == null) return NotFound();
+            return Ok(user);
+        }
+        [HttpGet("{name}")]
+        [Produces("application/json")]
+        public async Task<IActionResult> GetCommentByNameAsync(string name)
+        {
+            var user = await _mixerBL.GetCommentByNameAsync(name);
             if (user == null) return NotFound();
             return Ok(user);
         }
@@ -189,6 +241,62 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
+        [HttpPost]
+        [Consumes("application/json")]
+        public async Task<IActionResult> AddUserProjectAsync([FromBody] UserProject userProject)
+        {
+            try
+            {
+                await _mixerBL.AddUserProjectAsync(userProject);
+                return CreatedAtAction("AddUserProject", userProject);
+            }
+            catch
+            {
+                return StatusCode(400);
+            }
+        }
+        [HttpPost]
+        [Consumes("application/json")]
+        public async Task<IActionResult> AddPlaylistAsync([FromBody] PlayList playlist)
+        {
+            try
+            {
+                await _mixerBL.AddPlayListAsync(playlist);
+                return CreatedAtAction("AddPlaylist", playlist);
+            }
+            catch
+            {
+                return StatusCode(400);
+            }
+        }
+        [HttpPost]
+        [Consumes("application/json")]
+        public async Task<IActionResult> AddMusicPlaylistAsync([FromBody] MusicPlaylist musicPlaylist)
+        {
+            try
+            {
+                await _mixerBL.AddMusicPlaylistAsync(musicPlaylist);
+                return CreatedAtAction("AddMusicPlaylist", musicPlaylist);
+            }
+            catch
+            {
+                return StatusCode(400);
+            }
+        }
+        [HttpPost]
+        [Consumes("application/json")]
+        public async Task<IActionResult> AddCommentAsync([FromBody] Comments comment)
+        {
+            try
+            {
+                await _mixerBL.AddCommentAsync(comment);
+                return CreatedAtAction("AddComment", comment);
+            }
+            catch
+            {
+                return StatusCode(400);
+            }
+        }
 
         // PUT api/<HeroController>/5
         [HttpPut("{id}")]
@@ -262,6 +370,58 @@ namespace MixerREST.Controllers
             try
             {
                 await _mixerBL.UpdatePatternAsync(pattern);
+                return NoContent();
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUserProjectAsynch(int id, [FromBody] UserProject userProject)
+        {
+            try
+            {
+                await _mixerBL.UpdateUserProjectAsync(userProject);
+                return NoContent();
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePlayListAsynch(int id, [FromBody] PlayList playList)
+        {
+            try
+            {
+                await _mixerBL.UpdatePlayListAsync(playList);
+                return NoContent();
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateMusicPlaylistAsynch(int id, [FromBody] MusicPlaylist musicPlaylist)
+        {
+            try
+            {
+                await _mixerBL.UpdateMusicPlaylistAsync(musicPlaylist);
+                return NoContent();
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateCommentAsynch(int id, [FromBody] Comments comment)
+        {
+            try
+            {
+                await _mixerBL.UpdateCommentAsync(comment);
                 return NoContent();
             }
             catch
@@ -343,6 +503,58 @@ namespace MixerREST.Controllers
             try
             {
                 await _mixerBL.DeletePatternAsync(await _mixerBL.GetPatternByNameAsync(name));
+                return NoContent();
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+        [HttpDelete("{name}")]
+        public async Task<IActionResult> DeleteUserProjectAsync(string name)
+        {
+            try
+            {
+                await _mixerBL.DeleteUserProjectAsync(await _mixerBL.GetUserProjectByNameAsync(name));
+                return NoContent();
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+        [HttpDelete("{name}")]
+        public async Task<IActionResult> DeletePlayListAsync(string name)
+        {
+            try
+            {
+                await _mixerBL.DeletePlayListAsync(await _mixerBL.GetPlayListByNameAsync(name));
+                return NoContent();
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+        [HttpDelete("{name}")]
+        public async Task<IActionResult> DeleteMusicPlaylistAsync(string name)
+        {
+            try
+            {
+                await _mixerBL.DeleteMusicPlaylistAsync(await _mixerBL.GetMusicPlaylistByNameAsync(name));
+                return NoContent();
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+        [HttpDelete("{name}")]
+        public async Task<IActionResult> DeleteCommentAsync(string name)
+        {
+            try
+            {
+                await _mixerBL.DeleteCommentAsync(await _mixerBL.GetCommentByNameAsync(name));
                 return NoContent();
             }
             catch
