@@ -1,3 +1,4 @@
+using Amazon.S3;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -47,6 +48,11 @@ namespace MixerREST
                 }
                 );
 
+
+            //configuring amazon s3 support for project
+            var options = Configuration.GetAWSOptions();
+            IAmazonS3 client = options.CreateServiceClient<IAmazonS3>();
+
             services.AddDbContext<MixerDBContext>(
                     options =>
                     options.UseNpgsql(Configuration.GetConnectionString("StoreDB")
@@ -58,6 +64,9 @@ namespace MixerREST
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MixerREST", Version = "v1" });
             });
+
+            //add aws services to our system - now our controllers can access these services as needed
+            services.AddAWSService<IAmazonS3>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
