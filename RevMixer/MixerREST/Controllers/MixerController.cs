@@ -21,7 +21,7 @@ namespace MixerREST.Controllers
         //Paterns
         public MixerController(IMixerBL mixerBL)
         {
-            _mixerBL =  mixerBL;
+            _mixerBL = mixerBL;
         }
         // GET: api/<HeroController>
         [HttpGet]
