@@ -13,7 +13,11 @@ namespace MixerModels
         public string Email { get; set; }
         public bool IsAdmin { get; set; }
 
-        public ICollection<SavedProject> SavedProjects { get; set; }
+        public ICollection<UserProject> UserProjects { get; set; }
         public ICollection<Sample> Sample { get; set; }
+        public ICollection<Comments> Comments { get; set; }
+        public ICollection<UploadMusic> UploadMusics { get; set; }
+
+        public ICollection<PlayList> PlayLists { get; set; }
     }
 }
