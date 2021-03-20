@@ -1,13 +1,13 @@
+﻿using MixerModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MixerModels;
 
-namespace MixerBL
+namespace MixerDL
 {
-    public interface IMixerBL
+    public interface IMixerRepoDB
     {
         Task<UploadMusic> AddUploadedMusicAsync(UploadMusic newUploadedMusic);
         Task<UploadMusic> DeleteUploadedMusicAsync(UploadMusic uploadedMusic2BDeleted);
@@ -39,7 +39,5 @@ namespace MixerBL
         Task<Pattern> GetPatternByNameAsync(string name);
         Task<List<Pattern>> GetPatternsAsync();
         Task<Pattern> UpdatePatternAsync(Pattern pattern2BUpdated);
-
-
     }
 }
