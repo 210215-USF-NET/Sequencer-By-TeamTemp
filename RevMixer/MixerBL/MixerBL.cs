@@ -103,15 +103,15 @@ namespace MixerBL
         {
             return await _repo.DeleteCommentAsync(comment2BDeleted);
         }
-        public async Task<UploadMusic> GetUploadedMusicByNameAsync(string name)
+        public async Task<UploadMusic> GetUploadedMusicByIDAsync(int id)
         {
             //Todo: check if the name given is not null or empty string 
-            return await _repo.GetUploadedMusicByNameAsync(name);
+            return await _repo.GetUploadedMusicByIDAsync(id);
         }
-        public async Task<User> GetUserByNameAsync(string name)
+        public async Task<User> GetUserByIDAsync(int id)
         {
             //Todo: check if the name given is not null or empty string 
-            return await _repo.GetUserByNameAsync(name);
+            return await _repo.GetUserByIDAsync(id);
         }
         public async Task<SavedProject> GetSavedProjectByNameAsync(int savedProjectID)
         {
@@ -133,25 +133,25 @@ namespace MixerBL
             //Todo: check if the name given is not null or empty string 
             return await _repo.GetPatternByIDAsync(patternID);
         }
-        public async Task<UserProject> GetUserProjectByNameAsync(string name)
+        public async Task<UserProject> GetUserProjectByIDAsync(int id)
         {
             //Todo: check if the name given is not null or empty string 
-            return await _repo.GetUserProjectByNameAsync(name);
+            return await _repo.GetUserProjectByIDAsync(id);
         }
-        public async Task<PlayList> GetPlayListByNameAsync(string name)
+        public async Task<PlayList> GetPlayListByIDAsync(int id)
         {
             //Todo: check if the name given is not null or empty string 
-            return await _repo.GetPlayListByNameAsync(name);
+            return await _repo.GetPlayListByIDAsync(id);
         }
-        public async Task<MusicPlaylist> GetMusicPlaylistByNameAsync(string name)
+        public async Task<MusicPlaylist> GetMusicPlaylistByIDAsync(int id)
         {
             //Todo: check if the name given is not null or empty string 
-            return await _repo.GetMusicPlaylistByNameAsync(name);
+            return await _repo.GetMusicPlaylistByIDAsync(id);
         }
-        public async Task<Comments> GetCommentByNameAsync(string name)
+        public async Task<Comments> GetCommentByIDAsync(int id)
         {
             //Todo: check if the name given is not null or empty string 
-            return await _repo.GetCommentByNameAsync(name);
+            return await _repo.GetCommentByIDAsync(id);
         }
         public async Task<List<UploadMusic>> GetUploadedMusicAsync()
         {
