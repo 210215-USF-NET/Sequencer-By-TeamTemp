@@ -19,6 +19,7 @@ they can easily be forgotten. Revmixer provides the framework for musicians to e
 * User can share their project with other musicians to collaborate on
 
 # ERD
+![ER Diagram](ER.jpg)
 
 # Tech Stack
 * C#
