@@ -12,12 +12,12 @@ namespace MixerBL
     {
         Task<UploadMusic> AddUploadedMusicAsync(UploadMusic newUploadedMusic);
         Task<UploadMusic> DeleteUploadedMusicAsync(UploadMusic uploadedMusic2BDeleted);
-        Task<UploadMusic> GetUploadedMusicByNameAsync(string name);
+        Task<UploadMusic> GetUploadedMusicByIDAsync(int id);
         Task<List<UploadMusic>> GetUploadedMusicAsync();
         Task<UploadMusic> UpdateUploadedMusicAsync(UploadMusic uploadedMusic2BUpdated);
         Task<User> AddUserAsync(User newUser);
         Task<User> DeleteUserAsync(User user2BDeleted);
-        Task<User> GetUserByNameAsync(string name);
+        Task<User> GetUserByIDAsync(int id);
         Task<List<User>> GetUsersAsync();
         Task<User> UpdateUserAsync(User user2BUpdated);
         Task<SavedProject> AddSavedProjectAsync(SavedProject newSavedProject);
@@ -43,24 +43,24 @@ namespace MixerBL
 
         Task<UserProject> AddUserProjectAsync(UserProject newUserProject);
         Task<UserProject> DeleteUserProjectAsync(UserProject userProject2BDeleted);
-        Task<UserProject> GetUserProjectByNameAsync(string name);
+        Task<UserProject> GetUserProjectByIDAsync(int id);
         Task<List<UserProject>> GetUserProjectsAsync();
         Task<UserProject> UpdateUserProjectAsync(UserProject userProject2BUpdated);
 
         Task<PlayList> AddPlayListAsync(PlayList newPlaylist);
         Task<PlayList> DeletePlayListAsync(PlayList playlist2BDeleted);
-        Task<PlayList> GetPlayListByNameAsync(string name);
+        Task<PlayList> GetPlayListByIDAsync(int id);
         Task<List<PlayList>> GetPlayListsAsync();
         Task<PlayList> UpdatePlayListAsync(PlayList playlist2BUpdated);
 
         Task<MusicPlaylist> AddMusicPlaylistAsync(MusicPlaylist newMusicPlaylist);
         Task<MusicPlaylist> DeleteMusicPlaylistAsync(MusicPlaylist musicPlaylist2BDeleted);
-        Task<MusicPlaylist> GetMusicPlaylistByNameAsync(string name);
+        Task<MusicPlaylist> GetMusicPlaylistByIDAsync(int id);
         Task<List<MusicPlaylist>> GetMusicPlaylistsAsync();
         Task<MusicPlaylist> UpdateMusicPlaylistAsync(MusicPlaylist musicPlaylist2BUpdated);
         Task<Comments> AddCommentAsync(Comments newComment);
         Task<Comments> DeleteCommentAsync(Comments comment2BDeleted);
-        Task<Comments> GetCommentByNameAsync(string name);
+        Task<Comments> GetCommentByIDAsync(int id);
         Task<List<Comments>> GetCommentsAsync();
         Task<Comments> UpdateCommentAsync(Comments comment2BUpdated);
     }
