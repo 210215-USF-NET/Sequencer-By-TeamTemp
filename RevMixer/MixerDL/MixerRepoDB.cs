@@ -1,4 +1,5 @@
 ﻿using MixerModels;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,138 +8,221 @@ using System.Threading.Tasks;
 
 namespace MixerDL
 {
-    class MixerRepoDB : IMixerRepoDB
+    public class MixerRepoDB : IMixerRepoDB
     {
-        public Task<Pattern> AddPatternAsync(Pattern newPattern)
+        private readonly MixerDBContext _context;
+        public MixerRepoDB(MixerDBContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public async Task<Pattern> AddPatternAsync(Pattern newPattern)
+        {
+            await _context.Pattern.AddAsync(newPattern);
+            await _context.SaveChangesAsync();
+            return newPattern;
         }
 
-        public Task<Sample> AddSampleAsync(Sample newSample)
+        public async Task<Sample> AddSampleAsync(Sample newSample)
         {
-            throw new NotImplementedException();
+            await _context.Sample.AddAsync(newSample);
+            await _context.SaveChangesAsync();
+            return newSample;
         }
 
-        public Task<SavedProject> AddSavedProjectAsync(SavedProject newSavedProject)
+        public async Task<SavedProject> AddSavedProjectAsync(SavedProject newSavedProject)
         {
-            throw new NotImplementedException();
+            await _context.SavedProject.AddAsync(newSavedProject);
+            await _context.SaveChangesAsync();
+            return newSavedProject;
         }
 
-        public Task<Track> AddTrackAsync(Track newTrack)
+        public async Task<Track> AddTrackAsync(Track newTrack)
         {
-            throw new NotImplementedException();
+            await _context.Track.AddAsync(newTrack);
+            await _context.SaveChangesAsync();
+            return newTrack;
         }
 
-        public Task<UploadMusic> AddUploadedMusicAsync(UploadMusic newUploadedMusic)
+        public async Task<UploadMusic> AddUploadedMusicAsync(UploadMusic newUploadedMusic)
         {
-            throw new NotImplementedException();
+            await _context.UploadMusic.AddAsync(newUploadedMusic);
+            await _context.SaveChangesAsync();
+            return newUploadedMusic;
         }
 
-        public Task<User> AddUserAsync(User newUser)
+        public async Task<User> AddUserAsync(User newUser)
         {
-            throw new NotImplementedException();
+            await _context.User.AddAsync(newUser);
+            await _context.SaveChangesAsync();
+            return newUser;
         }
-        public Task<UserProject> AddUserProjectAsync(UserProject newUserProject)
+        public async Task<UserProject> AddUserProjectAsync(UserProject newUserProject)
         {
-            throw new NotImplementedException();
+            await _context.UserProject.AddAsync(newUserProject);
+            await _context.SaveChangesAsync();
+            return newUserProject;
         }
-        public Task<PlayList> AddPlayListAsync(PlayList newPlayList)
+        public async Task<PlayList> AddPlayListAsync(PlayList newPlayList)
         {
-            throw new NotImplementedException();
+            await _context.PlayList.AddAsync(newPlayList);
+            await _context.SaveChangesAsync();
+            return newPlayList;
         }
-        public Task<MusicPlaylist> AddMusicPlaylistAsync(MusicPlaylist newMusicPlaylist)
+        public async Task<MusicPlaylist> AddMusicPlaylistAsync(MusicPlaylist newMusicPlaylist)
         {
-            throw new NotImplementedException();
+            await _context.MusicPlaylist.AddAsync(newMusicPlaylist);
+            await _context.SaveChangesAsync();
+            return newMusicPlaylist;
         }
-        public Task<Comments> AddCommentAsync(Comments newComment)
+        public async Task<Comments> AddCommentAsync(Comments newComment)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<Pattern> DeletePatternAsync(Pattern pattern2BDeleted)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Sample> DeleteSampleAsync(Sample sample2BDeleted)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<SavedProject> DeleteSavedProjectAsync(SavedProject savedProject2BDeleted)
-        {
-            throw new NotImplementedException();
+            await _context.Comments.AddAsync(newComment);
+            await _context.SaveChangesAsync();
+            return newComment;
         }
 
-        public Task<Track> DeleteTrackAsync(Track track2BDeleted)
+        public async Task<Pattern> DeletePatternAsync(Pattern pattern2BDeleted)
         {
-            throw new NotImplementedException();
+            _context.Pattern.Remove(pattern2BDeleted);
+            await _context.SaveChangesAsync();
+            return pattern2BDeleted;
         }
 
-        public Task<UploadMusic> DeleteUploadedMusicAsync(UploadMusic uploadedMusic2BDeleted)
+        public async Task<Sample> DeleteSampleAsync(Sample sample2BDeleted)
         {
-            throw new NotImplementedException();
+            _context.Sample.Remove(sample2BDeleted);
+            await _context.SaveChangesAsync();
+            return sample2BDeleted;
         }
 
-        public Task<User> DeleteUserAsync(User user2BDeleted)
+        public async Task<SavedProject> DeleteSavedProjectAsync(SavedProject savedProject2BDeleted)
         {
-            throw new NotImplementedException();
-        }
-        public Task<UserProject> DeleteUserProjectAsync(UserProject userProject2BDeleted)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<PlayList> DeletePlayListAsync(PlayList playList2BDeleted)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<MusicPlaylist> DeleteMusicPlaylistAsync(MusicPlaylist musicPlaylist2BDeleted)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<Comments> DeleteCommentAsync(Comments comment2BDeleted)
-        {
-            throw new NotImplementedException();
+            _context.SavedProject.Remove(savedProject2BDeleted);
+            await _context.SaveChangesAsync();
+            return savedProject2BDeleted;
         }
 
-        public Task<Pattern> GetPatternByNameAsync(string name)
+        public async Task<Track> DeleteTrackAsync(Track track2BDeleted)
         {
-            throw new NotImplementedException();
+            _context.Track.Remove(track2BDeleted);
+            await _context.SaveChangesAsync();
+            return track2BDeleted;
         }
 
-        public Task<List<Pattern>> GetPatternsAsync()
+        public async Task<UploadMusic> DeleteUploadedMusicAsync(UploadMusic uploadedMusic2BDeleted)
         {
-            throw new NotImplementedException();
+            _context.UploadMusic.Remove(uploadedMusic2BDeleted);
+            await _context.SaveChangesAsync();
+            return uploadedMusic2BDeleted;
         }
 
-        public Task<Sample> GetSampleByNameAsync(string name)
+        public async Task<User> DeleteUserAsync(User user2BDeleted)
         {
-            throw new NotImplementedException();
+            _context.User.Remove(user2BDeleted);
+            await _context.SaveChangesAsync();
+            return user2BDeleted;
+        }
+        public async Task<UserProject> DeleteUserProjectAsync(UserProject userProject2BDeleted)
+        {
+            _context.UserProject.Remove(userProject2BDeleted);
+            await _context.SaveChangesAsync();
+            return userProject2BDeleted;
+        }
+        public async Task<PlayList> DeletePlayListAsync(PlayList playList2BDeleted)
+        {
+            _context.PlayList.Remove(playList2BDeleted);
+            await _context.SaveChangesAsync();
+            return playList2BDeleted;
+        }
+        public async Task<MusicPlaylist> DeleteMusicPlaylistAsync(MusicPlaylist musicPlaylist2BDeleted)
+        {
+            _context.MusicPlaylist.Remove(musicPlaylist2BDeleted);
+            await _context.SaveChangesAsync();
+            return musicPlaylist2BDeleted;
+        }
+        public async Task<Comments> DeleteCommentAsync(Comments comment2BDeleted)
+        {
+            _context.Comments.Remove(comment2BDeleted);
+            await _context.SaveChangesAsync();
+            return comment2BDeleted;
         }
 
-        public Task<List<Sample>> GetSamplesAsync()
+        public async Task<Pattern> GetPatternByIDAsync(int patternID)
         {
-            throw new NotImplementedException();
+            return await _context.Pattern
+                .AsNoTracking()
+                .FirstOrDefaultAsync(pattern => pattern.Id == patternID);
         }
 
-        public Task<SavedProject> GetSavedProjectByNameAsync(string name)
+        public async Task<List<Pattern>> GetPatternsAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Pattern
+                .AsNoTracking()
+                .Select(pattern => pattern)
+                .ToListAsync();
         }
 
-        public Task<List<SavedProject>> GetSavedProjectsAsync()
+        public async Task<Sample> GetSampleByIDAsync(int sampleID)
         {
-            throw new NotImplementedException();
+            return await _context.Sample
+                .Include(sample => sample.User)
+                .AsNoTracking()
+                .Include(sample => sample.Track)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(sample => sample.Id == sampleID);
         }
 
-        public Task<Track> GetTrackByNameAsync(string name)
+        public async Task<List<Sample>> GetSamplesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Sample
+                .Include(sample => sample.User)
+                .AsNoTracking()
+                .Include(sample => sample.Track)
+                .AsNoTracking()
+                .Select(sample => sample)
+                .ToListAsync();
         }
 
-        public Task<List<Track>> GetTracksAsync()
+        public async Task<SavedProject> GetSavedProjectByIDAsync(int savedProjectID)
         {
-            throw new NotImplementedException();
+            return await _context.SavedProject
+                .Include(savedProject => savedProject.UserProjects)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(savedProject => savedProject.Id == savedProjectID);
+        }
+
+        public async Task<List<SavedProject>> GetSavedProjectsAsync()
+        {
+            return await _context.SavedProject
+                .Include(savedProject => savedProject.UserProjects)
+                .AsNoTracking()
+                .Select(sampleProject => sampleProject)
+                .ToListAsync();
+        }
+
+        public async Task<Track> GetTrackByIDAsync(int trackID)
+        {
+            return await _context.Track
+                .Include(track => track.Pattern)
+                .AsNoTracking()
+                .Include(track => track.Sample)
+                .AsNoTracking()
+                .Include(track => track.SavedProject)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(track => track.Id == trackID);
+        }
+
+        public async Task<List<Track>> GetTracksAsync()
+        {
+            return await _context.Track
+                .Include(track => track.Pattern)
+                .AsNoTracking()
+                .Include(track => track.Sample)
+                .AsNoTracking()
+                .Include(track => track.SavedProject)
+                .AsNoTracking()
+                .Select(track => track)
+                .ToListAsync();
         }
 
         public Task<List<UploadMusic>> GetUploadedMusicAsync()
