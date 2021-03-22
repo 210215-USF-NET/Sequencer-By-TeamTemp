@@ -113,25 +113,25 @@ namespace MixerBL
             //Todo: check if the name given is not null or empty string 
             return await _repo.GetUserByNameAsync(name);
         }
-        public async Task<SavedProject> GetSavedProjectByNameAsync(string name)
+        public async Task<SavedProject> GetSavedProjectByNameAsync(int savedProjectID)
         {
             //Todo: check if the name given is not null or empty string 
-            return await _repo.GetSavedProjectByNameAsync(name);
+            return await _repo.GetSavedProjectByIDAsync(savedProjectID);
         }
-        public async Task<Sample> GetSampleByNameAsync(string name)
+        public async Task<Sample> GetSampleByIDAsync(int sampleID)
         {
             //Todo: check if the name given is not null or empty string 
-            return await _repo.GetSampleByNameAsync(name);
+            return await _repo.GetSampleByIDAsync(sampleID);
         }
-        public async Task<Track> GetTrackByNameAsync(string name)
+        public async Task<Track> GetTrackByNameAsync(int trackID)
         {
             //Todo: check if the name given is not null or empty string 
-            return await _repo.GetTrackByNameAsync(name);
+            return await _repo.GetTrackByIDAsync(trackID);
         }
-        public async Task<Pattern> GetPatternByNameAsync(string name)
+        public async Task<Pattern> GetPatternByNameAsync(int patternID)
         {
             //Todo: check if the name given is not null or empty string 
-            return await _repo.GetPatternByNameAsync(name);
+            return await _repo.GetPatternByIDAsync(patternID);
         }
         public async Task<UserProject> GetUserProjectByNameAsync(string name)
         {
