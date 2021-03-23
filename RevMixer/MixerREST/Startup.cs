@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MixerDL;
+using MixerBL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,11 +58,12 @@ namespace MixerREST
 
             services.AddDbContext<MixerDBContext>(
                 options =>
-                options.UseNpgsql(Configuration.GetConnectionString("StoreDB")
+                options.UseNpgsql(Configuration.GetConnectionString("RevMixerDB")
                 ),
                 ServiceLifetime.Scoped
                 );
-
+            services.AddScoped<IMixerRepoDB, MixerRepoDB>();
+            services.AddScoped<IMixerBL, MixBL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
