@@ -98,7 +98,7 @@ namespace MixerREST.Controllers
         }
         // GET api/Mixer/GetUploadedMusicByID/1
         [HttpGet]
-        [Route("GetUploadedMusicByID{uploadedMusicID}")]
+        [Route("GetUploadedMusicByID/{uploadedMusicID}")]
         [Produces("application/json")]
         public async Task<IActionResult> GetUploadedMusicByIDAsync(int uploadedMusicID)
         {
@@ -106,8 +106,9 @@ namespace MixerREST.Controllers
             if (uploadedMusic == null) return NotFound();
             return Ok(uploadedMusic);
         }
-        /*
-        [HttpGet("{name}")]
+        // GET api/Mixer/GetUserByID/1
+        [HttpGet]
+        [Route("GetUserByID/{userID}")]
         [Produces("application/json")]
         public async Task<IActionResult> GetUserByIDAsync(int userID)
         {
@@ -115,7 +116,9 @@ namespace MixerREST.Controllers
             if (user == null) return NotFound();
             return Ok(user);
         }
-        [HttpGet("{name}")]
+        // GET api/Mixer/GetSavedProjectByID/1
+        [HttpGet]
+        [Route("GetSavedProjectByID/{savedProjectID}")]
         [Produces("application/json")]
         public async Task<IActionResult> GetSavedProjectByIDAsync(int savedProjectID)
         {
@@ -123,7 +126,9 @@ namespace MixerREST.Controllers
             if (user == null) return NotFound();
             return Ok(user);
         }
-        [HttpGet("{name}")]
+        // GET api/Mixer/GetSampleByID/1
+        [HttpGet]
+        [Route("GetSampleByID/{sampleID}")]
         [Produces("application/json")]
         public async Task<IActionResult> GetSampleByIDAsync(int sampleID)
         {
@@ -131,7 +136,9 @@ namespace MixerREST.Controllers
             if (user == null) return NotFound();
             return Ok(user);
         }
-        [HttpGet("{name}")]
+        // GET api/Mixer/GetTrackByID/1
+        [HttpGet]
+        [Route("GetTrackByID/{trackID}")]
         [Produces("application/json")]
         public async Task<IActionResult> GetTrackByIDAsync(int trackID)
         {
@@ -139,7 +146,9 @@ namespace MixerREST.Controllers
             if (user == null) return NotFound();
             return Ok(user);
         }
-        [HttpGet("{name}")]
+        // GET api/Mixer/GetPatternByID/1
+        [HttpGet]
+        [Route("GetPatternByID/{patternID}")]
         [Produces("application/json")]
         public async Task<IActionResult> GetPatternByIDAsync(int patternID)
         {
@@ -147,7 +156,9 @@ namespace MixerREST.Controllers
             if (user == null) return NotFound();
             return Ok(user);
         }
-        [HttpGet("{name}")]
+        // GET api/Mixer/GetUserProjectByID/1
+        [HttpGet]
+        [Route("GetUserProjectByID/{userProjectID}")]
         [Produces("application/json")]
         public async Task<IActionResult> GetUserProjectByIDAsync(int userProjectID)
         {
@@ -155,7 +166,9 @@ namespace MixerREST.Controllers
             if (user == null) return NotFound();
             return Ok(user);
         }
-        [HttpGet("{name}")]
+        // GET api/Mixer/GetPlayListByID/1
+        [HttpGet]
+        [Route("GetPlayListByID/{playlistID}")]
         [Produces("application/json")]
         public async Task<IActionResult> GetPlaylistByIDAsync(int playlistID)
         {
@@ -163,7 +176,9 @@ namespace MixerREST.Controllers
             if (user == null) return NotFound();
             return Ok(user);
         }
-        [HttpGet("{name}")]
+        // GET api/Mixer/GetMusicPlayListByID/1
+        [HttpGet]
+        [Route("GetMusicPlayListByID/{musicPlayListID}")]
         [Produces("application/json")]
         public async Task<IActionResult> GetMusicPlaylistByIDAsync(int musicPlayListID)
         {
@@ -171,7 +186,9 @@ namespace MixerREST.Controllers
             if (user == null) return NotFound();
             return Ok(user);
         }
-        [HttpGet("{name}")]
+        // GET api/Mixer/GetCommentByID/1
+        [HttpGet]
+        [Route("GetCommentByID/{commentID}")]
         [Produces("application/json")]
         public async Task<IActionResult> GetCommentByIDAsync(int commentID)
         {
@@ -179,7 +196,6 @@ namespace MixerREST.Controllers
             if (user == null) return NotFound();
             return Ok(user);
         }
-
         // POST api/<HeroController>
         [HttpPost]
         [Consumes("application/json")]
