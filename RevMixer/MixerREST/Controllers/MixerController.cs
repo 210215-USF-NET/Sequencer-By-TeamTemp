@@ -196,8 +196,9 @@ namespace MixerREST.Controllers
             if (user == null) return NotFound();
             return Ok(user);
         }
-        // POST api/<HeroController>
+        // POST api/Mixer/AddUploadedMusic
         [HttpPost]
+        [Route("AddUploadedMusic")]
         [Consumes("application/json")]
         public async Task<IActionResult> AddUploadedMusicAsync([FromBody] UploadMusic uploadedMusic)
         {
@@ -211,7 +212,9 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
+        // POST api/Mixer/AddUser
         [HttpPost]
+        [Route("AddUser")]
         [Consumes("application/json")]
         public async Task<IActionResult> AddUserAsync([FromBody] User user)
         {
@@ -225,7 +228,9 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
+        // POST api/Mixer/AddSavedProject
         [HttpPost]
+        [Route("AddSavedProject")]
         [Consumes("application/json")]
         public async Task<IActionResult> AddSavedProjectAsync([FromBody] SavedProject savedProject)
         {
@@ -239,7 +244,9 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
+        // POST api/Mixer/AddSample
         [HttpPost]
+        [Route("AddSample")]
         [Consumes("application/json")]
         public async Task<IActionResult> AddSampleAsync([FromBody] Sample sample)
         {
@@ -253,7 +260,9 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
+        // POST api/Mixer/AddTrack
         [HttpPost]
+        [Route("AddTrack")]
         [Consumes("application/json")]
         public async Task<IActionResult> AddTrackAsync([FromBody] Track track)
         {
@@ -267,7 +276,9 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
+        // POST api/Mixer/AddPattern
         [HttpPost]
+        [Route("AddPattern")]
         [Consumes("application/json")]
         public async Task<IActionResult> AddPatternAsync([FromBody] Pattern pattern)
         {
@@ -281,7 +292,9 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
+        // POST api/Mixer/AddUserProject
         [HttpPost]
+        [Route("AddUserProject")]
         [Consumes("application/json")]
         public async Task<IActionResult> AddUserProjectAsync([FromBody] UserProject userProject)
         {
@@ -295,7 +308,9 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
+        // POST api/Mixer/AddPlayList
         [HttpPost]
+        [Route("AddPlayList")]
         [Consumes("application/json")]
         public async Task<IActionResult> AddPlaylistAsync([FromBody] PlayList playlist)
         {
@@ -309,7 +324,9 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
+        // POST api/Mixer/AddMusicPlayList
         [HttpPost]
+        [Route("AddMusicPlayList")]
         [Consumes("application/json")]
         public async Task<IActionResult> AddMusicPlaylistAsync([FromBody] MusicPlaylist musicPlaylist)
         {
@@ -323,7 +340,9 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
+        // POST api/Mixer/AddComment
         [HttpPost]
+        [Route("AddComment")]
         [Consumes("application/json")]
         public async Task<IActionResult> AddCommentAsync([FromBody] Comments comment)
         {
@@ -337,9 +356,10 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
-
-        // PUT api/<HeroController>/5
-        [HttpPut("{id}")]
+        
+        // PUT api/Mixer/UpdateUploadedMusic
+        [HttpPut]
+        [Route("UpdateUploadedMusic")]
         public async Task<IActionResult> UpdateUploadedMusicAsync(int id, [FromBody] UploadMusic uploadedMusic)
         {
             try
@@ -470,8 +490,9 @@ namespace MixerREST.Controllers
             }
         }
 
-        // DELETE api/<HeroController>/Thanos
-        [HttpDelete("{name}")]
+        // DELETE api/Mixer/DeleteUploadedMusic
+        [HttpDelete]
+        [Route("DeleteUploadedMusic/{uploadedMusicID}")]
         public async Task<IActionResult> DeleteUploadedMusicAsync(int uploadedMusicID)
         {
             try
@@ -484,7 +505,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpDelete("{name}")]
+        // DELETE api/Mixer/DeleteUser
+        [HttpDelete]
+        [Route("DeleteUser/{userID}")]
         public async Task<IActionResult> DeleteUserAsync(int userID)
         {
             try
@@ -497,8 +520,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-
-        [HttpDelete("{name}")]
+        // DELETE api/Mixer/DeleteSavedProject
+        [HttpDelete]
+        [Route("DeleteSavedProject/{savedProjectID}")]
         public async Task<IActionResult> DeleteSavedProjectAsync(int savedProjectID)
         {
             try
@@ -511,7 +535,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpDelete("{name}")]
+        // DELETE api/Mixer/DeleteSample
+        [HttpDelete]
+        [Route("DeleteSample/{sampleID}")]
         public async Task<IActionResult> DeleteSampleAsync(int sampleID)
         {
             try
@@ -524,7 +550,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpDelete("{name}")]
+        // DELETE api/Mixer/DeleteTrack
+        [HttpDelete]
+        [Route("DeleteTrack/{trackID}")]
         public async Task<IActionResult> DeleteTrackAsync(int trackID)
         {
             try
@@ -537,7 +565,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpDelete("{name}")]
+        // DELETE api/Mixer/DeletePattern
+        [HttpDelete]
+        [Route("DeletePattern/{patternID}")]
         public async Task<IActionResult> DeletePatternAsync(int patternID)
         {
             try
@@ -550,7 +580,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpDelete("{name}")]
+        // DELETE api/Mixer/DeleteUserProject
+        [HttpDelete]
+        [Route("DeleteUserProject/{userProjectID}")]
         public async Task<IActionResult> DeleteUserProjectAsync(int userProjectID)
         {
             try
@@ -563,7 +595,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpDelete("{name}")]
+        // DELETE api/Mixer/DeletePlayList
+        [HttpDelete]
+        [Route("DeletePlayList/{playListID}")]
         public async Task<IActionResult> DeletePlayListAsync(int playListID)
         {
             try
@@ -576,7 +610,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpDelete("{name}")]
+        // DELETE api/Mixer/DeleteMusicPlayList
+        [HttpDelete]
+        [Route("DeleteMusicPlayList/{musicPlayListID}")]
         public async Task<IActionResult> DeleteMusicPlaylistAsync(int musicPlayListID)
         {
             try
@@ -589,7 +625,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpDelete("{name}")]
+        // DELETE api/Mixer/DeleteComment
+        [HttpDelete]
+        [Route("DeleteComment/{commentID]")]
         public async Task<IActionResult> DeleteCommentAsync(int commentID)
         {
             try
@@ -602,6 +640,5 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        */
     }
 }
