@@ -356,10 +356,9 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
-        
-        // PUT api/Mixer/UpdateUploadedMusic
+        // PUT api/Mixer/UpdateUploadedMusic/1
         [HttpPut]
-        [Route("UpdateUploadedMusic")]
+        [Route("UpdateUploadedMusic/{id}")]
         public async Task<IActionResult> UpdateUploadedMusicAsync(int id, [FromBody] UploadMusic uploadedMusic)
         {
             try
@@ -372,7 +371,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpPut("{id}")]
+        // PUT api/Mixer/UpdateUser/1
+        [HttpPut]
+        [Route("UpdateUser/{id}")]
         public async Task<IActionResult> UpdateUserAsync(int id, [FromBody] User user)
         {
             try
@@ -385,7 +386,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpPut("{id}")]
+        // PUT api/Mixer/UpdateSavedProject/1
+        [HttpPut]
+        [Route("UpdateSavedProject/{id}")]
         public async Task<IActionResult> UpdateSavedProjectAsynch(int id, [FromBody] SavedProject savedProject)
         {
             try
@@ -398,7 +401,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpPut("{id}")]
+        // PUT api/Mixer/UpdateSample/1
+        [HttpPut]
+        [Route("UpdateSample/{id}")]
         public async Task<IActionResult> UpdateSampleAsynch(int id, [FromBody] Sample sample)
         {
             try
@@ -411,7 +416,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpPut("{id}")]
+        // PUT api/Mixer/UpdateTrack/1
+        [HttpPut]
+        [Route("UpdateTrack/{id}")]
         public async Task<IActionResult> UpdateTrackAsynch(int id, [FromBody] Track track)
         {
             try
@@ -424,7 +431,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpPut("{id}")]
+        // PUT api/Mixer/UpdatePattern/1
+        [HttpPut]
+        [Route("UpdatePattern/{id}")]
         public async Task<IActionResult> UpdatePatternAsynch(int id, [FromBody] Pattern pattern)
         {
             try
@@ -437,7 +446,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpPut("{id}")]
+        // PUT api/Mixer/UpdateUserProject/1
+        [HttpPut]
+        [Route("UpdateUserProject/{id}")]
         public async Task<IActionResult> UpdateUserProjectAsynch(int id, [FromBody] UserProject userProject)
         {
             try
@@ -450,7 +461,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpPut("{id}")]
+        // PUT api/Mixer/UpdatePlayList/1
+        [HttpPut]
+        [Route("UpdatePlayList/{id}")]
         public async Task<IActionResult> UpdatePlayListAsynch(int id, [FromBody] PlayList playList)
         {
             try
@@ -463,7 +476,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpPut("{id}")]
+        // PUT api/Mixer/UpdateMusicPlayList/1
+        [HttpPut]
+        [Route("UpdateMusicPlayList/{id}")]
         public async Task<IActionResult> UpdateMusicPlaylistAsynch(int id, [FromBody] MusicPlaylist musicPlaylist)
         {
             try
@@ -476,7 +491,9 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-        [HttpPut("{id}")]
+        // PUT api/Mixer/UpdateComment/1
+        [HttpPut]
+        [Route("UpdateComment/{id}")]
         public async Task<IActionResult> UpdateCommentAsynch(int id, [FromBody] Comments comment)
         {
             try
@@ -489,7 +506,6 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
-
         // DELETE api/Mixer/DeleteUploadedMusic
         [HttpDelete]
         [Route("DeleteUploadedMusic/{uploadedMusicID}")]
@@ -625,9 +641,10 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
+
         // DELETE api/Mixer/DeleteComment
         [HttpDelete]
-        [Route("DeleteComment/{commentID]")]
+        [Route("DeleteComment/{commentID}")]
         public async Task<IActionResult> DeleteCommentAsync(int commentID)
         {
             try
@@ -640,5 +657,6 @@ namespace MixerREST.Controllers
                 return StatusCode(500);
             }
         }
+
     }
 }
