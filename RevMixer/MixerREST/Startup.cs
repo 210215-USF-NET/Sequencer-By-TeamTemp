@@ -31,16 +31,16 @@ namespace MixerREST
         {
 
             services.AddControllers();
+
             services.AddCors(
                 options =>
                 {
-                    options.AddPolicy(
-                       name: "RevMixerPolicy",
+                    options.AddDefaultPolicy(
                        builder =>
                    {
                        // when you build your frontend, set this as the angular website origin domain,
                        // you might also need to allow the third party api you're using to access your stuff
-                       builder.WithOrigins("*")
+                       builder.AllowAnyOrigin()
                        .AllowAnyMethod()
                        .AllowAnyHeader();
                    }
@@ -50,10 +50,16 @@ namespace MixerREST
 
 
 
-            services.AddSwaggerGen(c =>
+
+            services.AddSwaggerGen(config =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MixerREST", Version = "v1" });
+                config.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Title = "RevMixer",
+                    Version = "v1"
+                });
             });
+
 
 
             services.AddDbContext<MixerDBContext>(
@@ -62,6 +68,9 @@ namespace MixerREST
                 ),
                 ServiceLifetime.Scoped
                 );
+
+
+
             services.AddScoped<IMixerRepoDB, MixerRepoDB>();
             services.AddScoped<IMixerBL, MixBL>();
         }
@@ -73,16 +82,20 @@ namespace MixerREST
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MixerREST v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint(/*swaggerURL: Configuration []*/"/swagger/v1/swagger.json", "RevMixer v1"));
             }
+
+
+
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseCors("RevMixerPolicy");
+            app.UseCors();
 
             app.UseAuthorization();
+            app.UseSwagger();
 
             app.UseEndpoints(endpoints =>
             {
