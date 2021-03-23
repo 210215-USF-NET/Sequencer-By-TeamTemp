@@ -1,0 +1,71 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'P2-API'
+    organization: '210215-usf-net'
+    scannerMode: 'MSBuild'
+    projectKey: '210215-USF-NET_Sequencer-By-TeamTemp'
+    projectName: 'Sequencer-By-TeamTemp'
+
+
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '**/RevMixer/MixerTest/*.csproj'
+    arguments: --configuration $(buildConfiguration) --collect "Code Coverage"
+
+- task: PublishCodeCoverageResults@1
+  displayName: publish code coverage results
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '**/coburtura/coverage.xml'
+
+- task: SonarCloudAnalyze@1
+  displayName: run code analysis
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    zipAfterPublish: true
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure subscription 1(0bcf3285-b43d-4285-97f2-47f2ef104e66)'
+    appType: 'webApp'
+    WebAppName: 'RevMixerAPI'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
