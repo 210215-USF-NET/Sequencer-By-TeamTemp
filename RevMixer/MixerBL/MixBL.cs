@@ -6,10 +6,10 @@ using MixerModels;
 
 namespace MixerBL
 {
-    public class MixerBL : IMixerBL
+    public class MixBL : IMixerBL
     {
         private IMixerRepoDB _repo;
-        public MixerBL(IMixerRepoDB repo)
+        public MixBL(IMixerRepoDB repo)
         {
             _repo = repo;
         }
@@ -113,7 +113,7 @@ namespace MixerBL
             //Todo: check if the name given is not null or empty string 
             return await _repo.GetUserByIDAsync(id);
         }
-        public async Task<SavedProject> GetSavedProjectByNameAsync(int savedProjectID)
+        public async Task<SavedProject> GetSavedProjectByIDAsync(int savedProjectID)
         {
             //Todo: check if the name given is not null or empty string 
             return await _repo.GetSavedProjectByIDAsync(savedProjectID);
@@ -123,12 +123,12 @@ namespace MixerBL
             //Todo: check if the name given is not null or empty string 
             return await _repo.GetSampleByIDAsync(sampleID);
         }
-        public async Task<Track> GetTrackByNameAsync(int trackID)
+        public async Task<Track> GetTrackByIDAsync(int trackID)
         {
             //Todo: check if the name given is not null or empty string 
             return await _repo.GetTrackByIDAsync(trackID);
         }
-        public async Task<Pattern> GetPatternByNameAsync(int patternID)
+        public async Task<Pattern> GetPatternByIDAsync(int patternID)
         {
             //Todo: check if the name given is not null or empty string 
             return await _repo.GetPatternByIDAsync(patternID);
