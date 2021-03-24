@@ -1,13 +1,15 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MixerModels;
+﻿using Microsoft.AspNetCore.Mvc;
 using MixerBL;
+using MixerModels;
+using System.Threading.Tasks;
+
 namespace MixerREST.Controllers
 {
+    /// <summary>
+    /// API for UploadedMusic
+    /// </summary>
+    [Route("api/[controller]")]
+    [ApiController]
     public class UploadedMusicController : Controller
     {
         private readonly IMixerBL _mixerBL;

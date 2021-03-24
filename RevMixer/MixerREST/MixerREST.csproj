@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\UploadedMusic.cs" />
   </ItemGroup>
 
   <ItemGroup>
