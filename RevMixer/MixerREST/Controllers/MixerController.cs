@@ -16,12 +16,6 @@ namespace MixerREST.Controllers
     public class MixerController : ControllerBase
     {
         private readonly IMixerBL _mixerBL;
-        //UploadedMusic
-        //Users
-        //SavedProjects
-        //Sample
-        //Tracks
-        //Paterns
         public MixerController(IMixerBL mixerBL)
         {
             _mixerBL = mixerBL;
