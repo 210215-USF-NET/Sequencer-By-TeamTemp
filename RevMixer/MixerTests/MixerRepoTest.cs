@@ -24,6 +24,7 @@ namespace MixerTests
             Seed();
         }
         //Comment
+        #region
         [Fact]
         public async void GetCommentsAsyncShouldReturnAllComments()
         {
@@ -67,29 +68,27 @@ namespace MixerTests
                 Assert.Equal("First Comment", newComment.Comment);
             }
         }
-        // [Fact]
-        // public async void DeleteCommentAsyncShouldDeleteComment()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.DeleteCommentAsync(
-        //             new Model.Comments
-        //             {
-        //                 Id = 1,
-        //                 Comment = "First Comment",
-
-        //                 UserId = 1,
-        //                 UploadMusicId = 1
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.Comments.Find(1);
-        //         Assert.Null(result);
-        //     }
-        // }
+        [Fact]
+        public async void DeleteCommentAsyncShouldDeleteComment()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                Comments testComment = new Comments();
+                testComment.Id = 4;
+                testComment.Comment = "First Comment";
+                testComment.CommentData = DateTime.Parse("2021-03-15 18:17:00");
+                testComment.UserId = 2;
+                testComment.UploadMusicId = 1;
+                var newComment = await _repo.AddCommentAsync(testComment);
+                var deletedComment = await _repo.DeleteCommentAsync(testComment);
+                using (var assertContext = new MixerDBContext(options))
+                {
+                    var result = await _repo.GetPatternByIDAsync(4);
+                    Assert.Null(result);
+                }
+            }
+        }
         [Fact]
         public async void UpdateCommentAsyncShouldUpdateComment()
         {
@@ -109,7 +108,9 @@ namespace MixerTests
                 Assert.Equal("Edit: I was actually second.", updatedComment.Comment);
             }
         }
+        #endregion
         // MusicPlaylist
+        #region
         [Fact]
         public async void GetMusicPlaylistsAsyncShouldReturnAllMusicPlaylists()
         {
@@ -121,85 +122,75 @@ namespace MixerTests
                 Assert.Equal(3, musicPlaylists.Count);
             }
         }
-        // [Fact]
-        // public async void GetMusicPlaylistByIDAsyncShouldReturnMusicPlaylist()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
+        [Fact]
+        public async void GetMusicPlaylistByIDAsyncShouldReturnMusicPlaylist()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                MusicPlaylist testMusicPlaylist = new MusicPlaylist();
+                testMusicPlaylist.Id = 4;
+                testMusicPlaylist.PlayListId = 2;
+                testMusicPlaylist.MusicId = 1;
+                var newMusicPlaylist = await _repo.AddMusicPlaylistAsync(testMusicPlaylist);
+                var foundMusicPlaylist = await _repo.GetMusicPlaylistByIDAsync(4);
+                Assert.NotNull(foundMusicPlaylist);
+                Assert.Equal(4, foundMusicPlaylist.Id);
+            }
+        }
+        [Fact]
+        public async void AddMusicPlaylistAsyncShouldAddMusicPlaylist()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                MusicPlaylist testMusicPlaylist = new MusicPlaylist();
+                testMusicPlaylist.PlayListId = 2;
+                testMusicPlaylist.MusicId = 1;
+                var newMusicPlaylist = await _repo.AddMusicPlaylistAsync(testMusicPlaylist);
+                Assert.NotNull(newMusicPlaylist);
+                Assert.Equal(2, newMusicPlaylist.PlayListId);
+            }
+        }
+        [Fact]
+        public async void DeleteMusicPlaylistAsyncShouldDeleteMusicPlaylist()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                MusicPlaylist testMusicPlaylist = new MusicPlaylist();
+                testMusicPlaylist.Id = 4;
+                testMusicPlaylist.PlayListId = 2;
+                testMusicPlaylist.MusicId = 1;
+                var newMusicPlaylist = await _repo.AddMusicPlaylistAsync(testMusicPlaylist);
+                var deleteMusicPlaylist = await _repo.DeleteMusicPlaylistAsync(testMusicPlaylist);
+                using (var assertContext = new MixerDBContext(options))
+                {
+                    var result = assertContext.MusicPlaylist.Find(4);
+                    Assert.Null(result);
+                }
+            }
 
-        //         var foundMusicPlaylist = await _repo.GetMusicPlaylistByIDAsync(1);
-
-        //         Assert.NotNull(foundMusicPlaylist);
-        //         Assert.Equal(1, foundMusicPlaylist.Id);
-        //     }
-        // }
-        // [Fact]
-        // public void AddMusicPlaylistAsyncShouldAddMusicPlaylist()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.AddMusicPlaylistAsync(
-        //             new Model.MusicPlaylist
-        //             {
-        //                 PlayListId = 1,
-        //                 MusicId = 1,
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.MusicPlaylist.FirstOrDefault(musicPlaylist => musicPlaylist.PlayListId == 1);
-        //         Assert.NotNull(result);
-        //         Assert.Equal(1, result.PlayListId);
-        //     }
-        // }
-        // [Fact]
-        // public void DeleteMusicPlaylistAsyncShouldDeleteMusicPlaylist()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.DeleteMusicPlaylistAsync(
-        //             new Model.MusicPlaylist
-        //             {
-        //                 Id = 1,
-        //                 PlayListId = 1,
-        //                 MusicId = 1,
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.MusicPlaylist.Find(1);
-        //         Assert.Null(result);
-        //     }
-        // }
-        //  [Fact]
-        // public void UpdateMusicPlaylistAsyncShouldUpdateMusicPlaylist()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.UpdateMusicPlaylistAsync(
-        //             new Model.MusicPlaylist
-        //             {
-        //                 Id = 1,
-        //                 PlayListId = 1,
-        //                 MusicId = 1,
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.MusicPlaylist.FirstOrDefault(musicPlaylist => musicPlaylist.Id == 1);
-        //         Assert.NotNull(result);
-        //         Assert.Equal(1, result.PlayListId);
-        //         Assert.Equal(1, result.MusicId);
-        //     }
-        // }
+        }
+        [Fact]
+        public async void UpdateMusicPlaylistAsyncShouldUpdateMusicPlaylist()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                MusicPlaylist testMusicPlaylist = new MusicPlaylist();
+                testMusicPlaylist.Id = 4;
+                testMusicPlaylist.PlayListId = 2;
+                testMusicPlaylist.MusicId = 1;
+                var newMusicPlaylist = await _repo.AddMusicPlaylistAsync(testMusicPlaylist);
+                testMusicPlaylist.PlayListId = 1;
+                var updateMusicPlaylist = await _repo.UpdateMusicPlaylistAsync(testMusicPlaylist);
+                Assert.Equal(1, updateMusicPlaylist.PlayListId);
+            }
+        }
+        #endregion
         // Pattern
+        #region
         [Fact]
         public async void GetPatternsAsyncShouldReturnAllPatterns()
         {
@@ -236,26 +227,24 @@ namespace MixerTests
                 Assert.Equal("123", newPattern.PatternData);
             }
         }
-        // [Fact]
-        // public void DeletePatternAsyncShouldDeletePattern()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.DeletePatternAsync(
-        //             new Model.Pattern
-        //             {
-        //                 Id = 1,
-        //                 PatternData = "1"
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.Pattern.Find(1);
-        //         Assert.Null(result);
-        //     }
-        // }
+        [Fact]
+        public async void DeletePatternAsyncShouldDeletePattern()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                Pattern testPattern = new Pattern();
+                testPattern.Id = 4;
+                testPattern.PatternData = "123";
+                var newPattern = await _repo.AddPatternAsync(testPattern);
+                var deletedPattern = await _repo.DeletePatternAsync(testPattern);
+                using (var assertContext = new MixerDBContext(options))
+                {
+                    var result = await _repo.GetPatternByIDAsync(4);
+                    Assert.Null(result);
+                }
+            }
+        }
         [Fact]
         public async void UpdatePatternAsyncShouldUpdatePattern()
         {
@@ -272,7 +261,9 @@ namespace MixerTests
                 Assert.Equal("456", updatedPattern.PatternData);
             }
         }
+        #endregion
         // PlayList
+        #region
         [Fact]
         public async void GetPlayListsAsyncShouldReturnAllPlayLists()
         {
@@ -284,85 +275,76 @@ namespace MixerTests
                 Assert.Equal(2, playLists.Count);
             }
         }
-        // [Fact]
-        // public void GetPlayListByIDAsyncShouldReturnPlayList()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
+        [Fact]
+        public async void GetPlayListByIDAsyncShouldReturnPlayList()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                PlayList testPlayList = new PlayList();
+                testPlayList.Id = 4;
+                testPlayList.UserId = 1;
+                testPlayList.Name = "Songs to git gud too";
+                var newPlayList = await _repo.AddPlayListAsync(testPlayList);
+                var foundPlayList = await _repo.GetPlayListByIDAsync(4);
+                Assert.NotNull(foundPlayList);
+                Assert.Equal(4, foundPlayList.Id);
+            }
+        }
+        [Fact]
+        public async void AddPlayListAsyncShouldAddPlayList()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                PlayList testPlayList = new PlayList();
+                testPlayList.UserId = 1;
+                testPlayList.Name = "Songs to git gud too";
+                var newPlayList = await _repo.AddPlayListAsync(testPlayList);
+                Assert.NotNull(newPlayList);
+                Assert.Equal("Songs to git gud too", newPlayList.Name);
+            }
+        }
+        [Fact]
+        public async void DeletePlayListAsyncShouldDeletePlayList()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                PlayList testPlayList = new PlayList();
+                testPlayList.Id = 4;
+                testPlayList.UserId = 1;
+                testPlayList.Name = "Songs to git gud too";
+                var newPlayList = await _repo.AddPlayListAsync(testPlayList);
+                var deletePlayList = await _repo.DeletePlayListAsync(testPlayList);
+                using (var assertContext = new MixerDBContext(options))
+                {
+                    var result = assertContext.PlayList.Find(4);
+                    Assert.Null(result);
+                }
+            }
 
-        //         var foundPlayList = _repo.GetPlayListByIDAsync(1);
+        }
+        [Fact]
+        public async void UpdatePlayListAsyncShouldUpdatePlayList()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                PlayList testPlayList = new PlayList();
+                testPlayList.Id = 4;
+                testPlayList.UserId = 1;
+                testPlayList.Name = "Songs to git gud too";
+                var newPlayList = await _repo.AddPlayListAsync(testPlayList);
+                var updatedPlayList = await _repo.UpdatePlayListAsync(testPlayList);
+                testPlayList.Name = "Git Gud";
+                Assert.Equal("Git Gud", updatedPlayList.Name);
 
-        //         Assert.NotNull(foundPlayList);
-        //         Assert.Equal(1, foundPlayList.Id);
-        //     }
-        // }
-        // [Fact]
-        // public void AddPlayListAsyncShouldAddPlayList()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.AddPlayListAsync(
-        //             new Model.PlayList
-        //             {
-        //                 UserId = 1,
-        //                 Name = "Funky Beats"
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.PlayList.FirstOrDefault(playList => playList.Name == "Funky Beats");
-        //         Assert.NotNull(result);
-        //         Assert.Equal("Funky Beats", result.Name);
-        //     }
-        // }
-        // [Fact]
-        // public void DeletePlayListAsyncShouldDeletePlayList()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.DeletePlayListAsync(
-        //             new Model.PlayList
-        //             {
-        //                 Id = 1,
-        //                 UserId = 1,
-        //                 Name = "Funky Beats"
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.PlayList.Find(1);
-        //         Assert.Null(result);
-        //     }
-        // }
-        // [Fact]
-        // public void UpdatePlayListAsyncShouldUpdatePlayList()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.UpdatePlayListAsync(
-        //             new Model.PlayList
-        //             {
-        //                  Id = 1,
-        //                 UserId = 1,
-        //                 Name = "Funky Beats"
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.PlayList.FirstOrDefault(playList => playList.Id == 1);
-        //         Assert.NotNull(result);
-        //         Assert.Equal(1, result.UserId);
-        //         Assert.Equal("Funky Beats", result.Name);
-        //     }
-        // }
+            }
+        }
+        #endregion
         // Sample
+        #region
         [Fact]
         public async void GetSamplesAsyncShouldReturnAllSamples()
         {
@@ -374,89 +356,80 @@ namespace MixerTests
                 Assert.Equal(2, samples.Count);
             }
         }
-        // [Fact]
-        // public void GetSampleByIDAsyncShouldReturnSample()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
+        [Fact]
+        public async void GetSampleByIDAsyncShouldReturnSample()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                Sample testSample = new Sample();
+                testSample.Id = 4;
+                testSample.UserId = 2;
+                testSample.SampleName = "kick_8";
+                testSample.SampleLink = "kick_8";
+                var newSample = await _repo.AddSampleAsync(testSample);
+                var foundSample = await _repo.GetSampleByIDAsync(4);
+                Assert.NotNull(foundSample);
+                Assert.Equal(4, foundSample.Id);
+            }
+        }
+        [Fact]
+        public async void AddSampleAsyncShouldAddSample()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                Sample testSample = new Sample();
+                testSample.UserId = 2;
+                testSample.SampleName = "kick_8";
+                testSample.SampleLink = "kick_8";
+                var newSample = await _repo.AddSampleAsync(testSample);
+                Assert.NotNull(newSample);
+                Assert.Equal("kick_8", newSample.SampleName);
+            }
+        }
+        [Fact]
+        public async void DeleteSampleAsyncShouldDeleteSample()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                Sample testSample = new Sample();
+                testSample.Id = 4;
+                testSample.UserId = 2;
+                testSample.SampleName = "kick_8";
+                testSample.SampleLink = "kick_8";
+                var newSample = await _repo.AddSampleAsync(testSample);
+                var deleteSample = await _repo.DeleteSampleAsync(testSample);
+                using (var assertContext = new MixerDBContext(options))
+                {
+                    var result = assertContext.Sample.Find(4);
+                    Assert.Null(result);
+                }
+            }
 
-        //         var foundSample = _repo.GetSampleByIDAsync(1);
+        }
+        [Fact]
+        public async void UpdateSampleAsyncShouldUpdateSample()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                Sample testSample = new Sample();
+                testSample.Id = 4;
+                testSample.UserId = 2;
+                testSample.SampleName = "kick_8";
+                testSample.SampleLink = "kick_8";
+                var newSample = await _repo.AddSampleAsync(testSample);
+                testSample.SampleName = "kick_9";
+                var updateSample = await _repo.UpdateSampleAsync(testSample);
+                Assert.Equal("kick_9", updateSample.SampleName);
 
-        //         Assert.NotNull(foundSample);
-        //         Assert.Equal(1, foundSample.Id);
-        //     }
-        // }
-        //    [Fact]
-        // public void AddSampleAsyncShouldAddSample()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.AddSampleAsync(
-        //             new Model.Sample
-        //             {
-        //                 UserId = 1,
-        //                 SampleName = "Free Sample",
-        //                 SampleLink = "Link.Link"
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.Sample.FirstOrDefault(sample => sample.SampleName == "Free Sample");
-        //         Assert.NotNull(result);
-        //         Assert.Equal("Free Sample", result.SampleName);
-        //     }
-        // }
-        // [Fact]
-        // public void DeleteSampleAsyncShouldDeleteSample()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.DeleteSampleAsync(
-        //             new Model.Sample
-        //             {
-        //                 Id = 1,
-        //                 UserId = 1,
-        //                 SampleName = "Free Sample",
-        //                 SampleLink = "Link.Link"
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.Sample.Find(1);
-        //         Assert.Null(result);
-        //     }
-        // }
-        // [Fact]
-        // public void UpdateSampleAsyncShouldUpdateSample()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.UpdateSampleAsync(
-        //             new Model.Sample
-        //             {
-        //                  Id = 1,
-        //                 UserId = 1,
-        //                 SampleName = "Free Sample",
-        //                 SampleLink = "Link.Link"
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.Sample.FirstOrDefault(sample => sample.Id == 1);
-        //         Assert.NotNull(result);
-        //         Assert.Equal(1, result.UserId);
-        //         Assert.Equal("Free Sample", result.SampleName);
-        //         Assert.Equal("Link.Link", result.SampleLink);
-        //     }
-        // }
+            }
+        }
+        #endregion
         // SavedProject
+        #region
         [Fact]
         public async void GetSavedProjectsAsyncShouldReturnAllSavedProjects()
         {
@@ -468,85 +441,74 @@ namespace MixerTests
                 Assert.Equal(2, savedProjects.Count);
             }
         }
-        // [Fact]
-        // public void GetSavedProjectByIDAsyncShouldReturnSavedProject()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
+        [Fact]
+        public async void GetSavedProjectByIDAsyncShouldReturnSavedProject()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                SavedProject testSavedProject = new SavedProject();
+                testSavedProject.Id = 4;
+                testSavedProject.ProjectName = "epic project";
+                testSavedProject.BPM = 140;
+                var newSavedProject = await _repo.AddSavedProjectAsync(testSavedProject);
+                var foundSavedProject = await _repo.GetSavedProjectByIDAsync(4);
+                Assert.NotNull(foundSavedProject);
+                Assert.Equal(4, foundSavedProject.Id);
+            }
+        }
+        [Fact]
+        public async void AddSavedProjectAsyncShouldAddSavedProject()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                SavedProject testSavedProject = new SavedProject();
+                testSavedProject.ProjectName = "epic project";
+                testSavedProject.BPM = 140;
+                var newSavedProject = await _repo.AddSavedProjectAsync(testSavedProject);
+                Assert.Equal("epic project", newSavedProject.ProjectName);
+            }
+        }
+        [Fact]
+        public async void DeleteSavedProjectAsyncShouldDeleteSavedProject()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                SavedProject testSavedProject = new SavedProject();
+                testSavedProject.Id = 4;
+                testSavedProject.ProjectName = "epic project";
+                testSavedProject.BPM = 140;
+                var newSavedProject = await _repo.AddSavedProjectAsync(testSavedProject);
+                var deleteSavedProject = await _repo.DeleteSavedProjectAsync(testSavedProject);
+                using (var assertContext = new MixerDBContext(options))
+                {
+                    var result = assertContext.SavedProject.Find(4);
+                    Assert.Null(result);
+                }
+            }
 
-        //         var foundSavedProject = _repo.GetSavedProjectByIDAsync(1);
-
-        //         Assert.NotNull(foundSavedProject);
-        //         Assert.Equal(1, foundSavedProject.Id);
-        //     }
-        // }
-        // [Fact]
-        // public void AddSavedProjectAsyncShouldAddSavedProject()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.AddSavedProjectAsync(
-        //             new Model.SavedProject
-        //             {
-        //                 ProjectName = "Untitled",
-        //                 BPM = 10
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.SavedProject.FirstOrDefault(savedProject => savedProject.ProjectName == "Untitled");
-        //         Assert.NotNull(result);
-        //         Assert.Equal("Untitled", result.ProjectName);
-        //     }
-        // }
-        // [Fact]
-        // public void DeleteSavedProjectAsyncShouldDeleteSavedProject()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.DeleteSavedProjectAsync(
-        //             new Model.SavedProject
-        //             {
-        //                 Id = 1,
-        //                 ProjectName = "Untitled",
-        //                 BPM = 10
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.SavedProject.Find(1);
-        //         Assert.Null(result);
-        //     }
-        // }
-        // [Fact]
-        // public void UpdateSavedProjectAsyncShouldUpdateSavedProject()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.UpdateSavedProjectAsync(
-        //             new Model.SavedProject
-        //             {
-        //                 Id = 1,
-        //                 ProjectName = "Untitled",
-        //                 BPM = 10,
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.SavedProject.FirstOrDefault(savedProject => savedProject.Id == 1);
-        //         Assert.NotNull(result);
-        //         Assert.Equal("Untitled", result.ProjectName);
-        //         Assert.Equal(10, result.BPM);
-        //     }
-        // }
+        }
+        [Fact]
+        public async void UpdateSavedProjectAsyncShouldUpdateSavedProject()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                SavedProject testSavedProject = new SavedProject();
+                testSavedProject.Id = 4;
+                testSavedProject.ProjectName = "epic project";
+                testSavedProject.BPM = 140;
+                var newSavedProject = await _repo.AddSavedProjectAsync(testSavedProject);
+                testSavedProject.ProjectName = "Epic Project";
+                var updateSavedProject = await _repo.UpdateSavedProjectAsync(testSavedProject);
+                Assert.Equal("Epic Project", updateSavedProject.ProjectName);
+            }
+        }
+        #endregion
         // Track
+        #region
         [Fact]
         public async void GetTracksAsyncShouldReturnAllTracks()
         {
@@ -558,88 +520,78 @@ namespace MixerTests
                 Assert.Equal(3, tracks.Count);
             }
         }
-        // [Fact]
-        // public void GetTrackByIDAsyncShouldReturnTrack()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
+        [Fact]
+        public async void GetTrackByIDAsyncShouldReturnTrack()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                Track testTrack = new Track();
+                testTrack.Id = 4;
+                testTrack.ProjectId = 2;
+                testTrack.SampleId = 1;
+                testTrack.PatternId = 2;
+                var newTrack = await _repo.AddTrackAsync(testTrack);
+                var foundTrack = await _repo.GetTrackByIDAsync(4);
+                Assert.NotNull(foundTrack);
+                Assert.Equal(4, foundTrack.Id);
+            }
+        }
+        [Fact]
+        public async void AddTrackAsyncShouldAddTrack()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                Track testTrack = new Track();
+                testTrack.ProjectId = 2;
+                testTrack.SampleId = 1;
+                testTrack.PatternId = 2;
+                var newTrack = await _repo.AddTrackAsync(testTrack);
+                Assert.Equal(2, newTrack.ProjectId);
+            }
+        }
+        [Fact]
+        public async void DeleteTrackAsyncShouldDeleteTrack()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                Track testTrack = new Track();
+                testTrack.Id = 4;
+                testTrack.ProjectId = 2;
+                testTrack.SampleId = 1;
+                testTrack.PatternId = 2;
+                var newTrack = await _repo.AddTrackAsync(testTrack);
+                var deleteTrack = await _repo.DeleteTrackAsync(testTrack);
+                using (var assertContext = new MixerDBContext(options))
+                {
+                    var result = assertContext.Track.Find(4);
+                    Assert.Null(result);
+                }
+            }
+        }
+        [Fact]
+        public async void UpdateTrackAsyncShouldUpdateTrack()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                Track testTrack = new Track();
+                testTrack.Id = 4;
+                testTrack.ProjectId = 2;
+                testTrack.SampleId = 1;
+                testTrack.PatternId = 2;
+                var newTrack = await _repo.AddTrackAsync(testTrack);
+                testTrack.ProjectId = 3;
+                var updateTrack = await _repo.UpdateTrackAsync(testTrack);
+                Assert.Equal(3, updateTrack.ProjectId);
+            }
 
-        //         var foundTrack = _repo.GetTrackByIDAsync(1);
-
-        //         Assert.NotNull(foundTrack);
-        //         Assert.Equal(1, foundTrack.Id);
-        //     }
-        // }
-        // [Fact]
-        // public void AddTrackAsyncShouldAddTrack()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.AddTrackAsync(
-        //             new Model.Track
-        //             {
-        //                 ProjectId = 1,
-        //                 SampleId = 1,
-        //                 PatternId = 1,
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.Track.FirstOrDefault(track => track.ProjectId == 1);
-        //         Assert.NotNull(result);
-        //         Assert.Equal(1, result.ProjectId);
-        //     }
-        // }
-        // [Fact]
-        // public void DeleteTrackAsyncShouldDeleteTrack()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.DeleteTrackAsync(
-        //             new Model.Track
-        //             {
-        //                 Id = 1,
-        //                 ProjectId = 1,
-        //                 SampleId = 1,
-        //                 PatternId = 1,
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.Track.Find(1);
-        //         Assert.Null(result);
-        //     }
-        // }
-        // [Fact]
-        // public void UpdateTrackAsyncShouldUpdateTrack()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.UpdateTrackAsync(
-        //             new Model.Track
-        //             {
-        //                ProjectId = 1,
-        //                 SampleId = 1,
-        //                 PatternId = 1,
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.Track.FirstOrDefault(track => track.Id == 1);
-        //         Assert.NotNull(result);
-        //         Assert.Equal(1, result.ProjectId);
-        //         Assert.Equal(1, result.SampleId);
-        //         Assert.Equal(1, result.PatternId);
-        //     }
-        // }
+        }
+        #endregion
         // UploadMusic
+        #region
         [Fact]
         public async void GetUploadedMusicAsyncShouldReturnAllUploadedMusic()
         {
@@ -651,97 +603,90 @@ namespace MixerTests
                 Assert.Equal(2, uploadedMusic.Count);
             }
         }
-        // [Fact]
-        // public void GetUploadedMusicByIDAsyncShouldReturnUploadedMusic()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
+        [Fact]
+        public async void GetUploadedMusicByIDAsyncShouldReturnUploadedMusic()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                UploadMusic testUploadMusic = new UploadMusic();
+                testUploadMusic.Id = 4;
+                testUploadMusic.UserId = 1;
+                testUploadMusic.MusicFilePath = "cool_song";
+                testUploadMusic.Name = "Jumping Jacks";
+                testUploadMusic.UploadDate = DateTime.Parse("2021-03-15 18:17:00");
+                testUploadMusic.Likes = 3409;
+                testUploadMusic.Plays = 9084;
+                var newUploadMusic = await _repo.AddUploadedMusicAsync(testUploadMusic);
+                var foundUploadedMusic = await _repo.GetUploadedMusicByIDAsync(4);
+                Assert.NotNull(foundUploadedMusic);
+                Assert.Equal(4, foundUploadedMusic.Id);
+            }
+        }
+        [Fact]
+        public async void AddUploadedMusicAsyncShouldAddUploadedMusic()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                UploadMusic testUploadMusic = new UploadMusic();
+                testUploadMusic.UserId = 1;
+                testUploadMusic.MusicFilePath = "cool_song";
+                testUploadMusic.Name = "Jumping Jacks";
+                testUploadMusic.UploadDate = DateTime.Parse("2021-03-15 18:17:00");
+                testUploadMusic.Likes = 3409;
+                testUploadMusic.Plays = 9084;
+                var newUploadMusic = await _repo.AddUploadedMusicAsync(testUploadMusic);
+                Assert.Equal("Jumping Jacks", newUploadMusic.Name);
+            }
+        }
+        [Fact]
+        public async void DeleteUploadedMusicAsyncShouldDeleteUploadedMusic()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                UploadMusic testUploadMusic = new UploadMusic();
+                testUploadMusic.Id = 4;
+                testUploadMusic.UserId = 1;
+                testUploadMusic.MusicFilePath = "cool_song";
+                testUploadMusic.Name = "Jumping Jacks";
+                testUploadMusic.UploadDate = DateTime.Parse("2021-03-15 18:17:00");
+                testUploadMusic.Likes = 3409;
+                testUploadMusic.Plays = 9084;
+                var newUploadMusic = await _repo.AddUploadedMusicAsync(testUploadMusic);
+                var deletedUploadMusic = await _repo.DeleteUploadedMusicAsync(testUploadMusic);
+                using (var assertContext = new MixerDBContext(options))
+                {
+                    var result = assertContext.UploadMusic.Find(4);
+                    Assert.Null(result);
+                }
+            }
 
-        //         var foundUploadedMusic = _repo.GetUploadedMusicByIDAsync(1);
-
-        //         Assert.NotNull(foundUploadedMusic);
-        //         Assert.Equal(1, foundUploadedMusic.Id);
-        //     }
-        // }
-        //      [Fact]
-        // public void AddUploadedMusicAsyncShouldAddUploadedMusic()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.AddUploadedMusicAsync(
-        //             new Model.UploadMusic
-        //             {
-        //                 UserId = 1,
-        //                 MusicFilePath = "path",
-        //                 Name = "Big Chungus Rap",
-        //                 Likes = 50,
-        //                 Plays = 100
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.UploadMusic.FirstOrDefault(uploadedMusic => uploadedMusic.Name == "Big Chungus Rap");
-        //         Assert.NotNull(result);
-        //         Assert.Equal("Big Chungus Rap", result.Name);
-        //     }
-        // }
-        // [Fact]
-        // public void DeleteUploadedMusicAsyncShouldDeleteUploadedMusic()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.DeleteUploadedMusicAsync(
-        //             new Model.UploadMusic
-        //             {
-        //                 Id = 1,
-        //                 UserId = 1,
-        //                 MusicFilePath = "path",
-        //                 Name = "Big Chungus Rap",
-        //                 Likes = 50,
-        //                 Plays = 100
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.UploadMusic.Find(1);
-        //         Assert.Null(result);
-        //     }
-        // }
-        // [Fact]
-        // public void UpdateUploadedMusicAsyncShouldUpdateUploadedMusic()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.UpdateUploadedMusicAsync(
-        //             new Model.UploadMusic
-        //             {
-        //                Id = 1,
-        //                  UserId = 1,
-        //                 MusicFilePath = "path",
-        //                 Name = "Big Chungus Rap",
-        //                 Likes = 50,
-        //                 Plays = 100
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.UploadMusic.FirstOrDefault(uploadedMusic => uploadedMusic.Id == 1);
-        //         Assert.NotNull(result);
-        //         Assert.Equal(1, result.UserId);
-        //         Assert.Equal("path", result.MusicFilePath);
-        //         Assert.Equal("Big Chungus Rap", result.Name);
-        //         Assert.Equal(50, result.Likes);
-        //         Assert.Equal(100, result.Plays);
-        //     }
-        // }
+        }
+        [Fact]
+        public async void UpdateUploadedMusicAsyncShouldUpdateUploadedMusic()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                UploadMusic testUploadMusic = new UploadMusic();
+                testUploadMusic.Id = 4;
+                testUploadMusic.UserId = 1;
+                testUploadMusic.MusicFilePath = "cool_song";
+                testUploadMusic.Name = "Jumping Jacks";
+                testUploadMusic.UploadDate = DateTime.Parse("2021-03-15 18:17:00");
+                testUploadMusic.Likes = 3409;
+                testUploadMusic.Plays = 9084;
+                var newUploadMusic = await _repo.AddUploadedMusicAsync(testUploadMusic);
+                testUploadMusic.Name = "Jumping Jax";
+                var updateUploadMusic = await _repo.UpdateUploadedMusicAsync(testUploadMusic);
+                Assert.Equal("Jumping Jax", updateUploadMusic.Name);
+            }
+        }
+        #endregion
         // User
+        #region
         [Fact]
         public async void GetUsersAsyncShouldReturnAllUsers()
         {
@@ -823,8 +768,9 @@ namespace MixerTests
                 Assert.Equal(true, updatedUser.IsAdmin);
             }
         }
-
+        #endregion
         // UserProject
+        #region
         [Fact]
         public async void GetUserProjectsAsyncShouldReturnAllUserProjects()
         {
@@ -836,88 +782,77 @@ namespace MixerTests
                 Assert.Equal(2, userProjects.Count);
             }
         }
-        // [Fact]
-        // public void GetUserProjectByIDAsyncShouldReturnUserProject()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
+        [Fact]
+        public async void GetUserProjectByIDAsyncShouldReturnUserProject()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                UserProject testUserProject = new UserProject();
+                testUserProject.Id = 4;
+                testUserProject.UserId = 1;
+                testUserProject.ProjectId = 1;
+                testUserProject.Owner = true;
+                var newUserProject = await _repo.AddUserProjectAsync(testUserProject);
+                var foundUserProject = await _repo.GetUserProjectByIDAsync(4);
+                Assert.NotNull(foundUserProject);
+                Assert.Equal(4, foundUserProject.Id);
+            }
+        }
+        [Fact]
+        public async void AddUserProjectAsyncShouldAddUserProject()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                UserProject testUserProject = new UserProject();
+                testUserProject.UserId = 1;
+                testUserProject.ProjectId = 1;
+                testUserProject.Owner = true;
+                var newUserProject = await _repo.AddUserProjectAsync(testUserProject);
+                Assert.Equal(1, newUserProject.UserId);
+            }
+        }
+        [Fact]
+        public async void DeleteUserProjectAsyncShouldDeleteUserProject()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                UserProject testUserProject = new UserProject();
+                testUserProject.Id = 4;
+                testUserProject.UserId = 1;
+                testUserProject.ProjectId = 1;
+                testUserProject.Owner = true;
+                var newUserProject = await _repo.AddUserProjectAsync(testUserProject);
+                var deletedUserProject = await _repo.DeleteUserProjectAsync(testUserProject);
 
-        //         var foundUserProject = _repo.GetUserProjectByIDAsync(2);
-
-        //         Assert.NotNull(foundUserProject);
-        //         Assert.Equal(1, foundUserProject.Id);
-        //     }
-        // }
-        //   [Fact]
-        // public void AddUserProjectAsyncShouldAddUserProject()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.AddUserProjectAsync(
-        //             new Model.UserProject
-        //             {
-        //                 UserId = 1,
-        //                 ProjectId = 1,
-        //                 Owner = false
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.UserProject.FirstOrDefault(userProject => userProject.UserId == 1);
-        //         Assert.NotNull(result);
-        //         Assert.Equal(1, result.UserId);
-        //     }
-        // }
-        // [Fact]
-        // public void DeleteUserProjectAsyncShouldDeleteUserProject()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.DeleteUserProjectAsync(
-        //             new Model.UserProject
-        //             {
-        //                 Id = 1,
-        //                  UserId = 1,
-        //                 ProjectId = 1,
-        //                 Owner = false
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.UserProject.Find(1);
-        //         Assert.Null(result);
-        //     }
-        // }
-        // [Fact]
-        // public void UpdateUserProjectAsyncShouldUpdateUserProject()
-        // {
-        //     using (var context = new MixerDBContext(options))
-        //     {
-        //         IMixerRepoDB _repo = new MixerRepoDB(context);
-        //         _repo.UpdateUserProjectAsync(
-        //             new Model.UserProject
-        //             {
-        //                 Id = 1,
-        //                  UserId = 1,
-        //                 ProjectId = 1,
-        //                 Owner = false
-        //             }
-        //         );
-        //     }
-        //     using (var assertContext = new MixerDBContext(options))
-        //     {
-        //         var result = assertContext.UserProject.FirstOrDefault(userProject => userProject.Id == 1);
-        //         Assert.NotNull(result);
-        //         Assert.Equal(1, result.UserId);
-        //         Assert.Equal(1, result.ProjectId);
-        //         Assert.Equal(false, result.Owner);
-        //     }
-        // }
+            }
+            using (var assertContext = new MixerDBContext(options))
+            {
+                var result = assertContext.UserProject.Find(4);
+                Assert.Null(result);
+            }
+        }
+        [Fact]
+        public async void UpdateUserProjectAsyncShouldUpdateUserProject()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                UserProject testUserProject = new UserProject();
+                testUserProject.Id = 4;
+                testUserProject.UserId = 1;
+                testUserProject.ProjectId = 1;
+                testUserProject.Owner = true;
+                var newUserProject = await _repo.AddUserProjectAsync(testUserProject);
+                Assert.Equal(true, newUserProject.Owner);
+                testUserProject.Owner = false;
+                var updatedUserProject = await _repo.UpdateUserProjectAsync(testUserProject);
+                Assert.Equal(false, updatedUserProject.Owner);
+            }
+        }
+        #endregion
         private void Seed()
         {
             using (var context = new MixerDBContext(options))

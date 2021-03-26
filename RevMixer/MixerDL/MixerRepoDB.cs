@@ -429,7 +429,7 @@ namespace MixerDL
         }
         public async Task<PlayList> UpdatePlayListAsync(PlayList playList2BUpdated)
         {
-            MusicPlaylist oldPlaylist = await _context.MusicPlaylist.Where(p => p.Id == playList2BUpdated.Id).FirstOrDefaultAsync();
+            PlayList oldPlaylist = await _context.PlayList.Where(p => p.Id == playList2BUpdated.Id).FirstOrDefaultAsync();
 
             _context.Entry(oldPlaylist).CurrentValues.SetValues(playList2BUpdated);
 
