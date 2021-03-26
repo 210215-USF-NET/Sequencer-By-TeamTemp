@@ -250,7 +250,7 @@ namespace MixerBL
         {
             User user2Return = await _repo.GetUserByEmail(userEmail);
             user2Return.Email = userEmail;
-            if(user2Return == null)
+            if (user2Return == null)
             {
                 return await _repo.AddUserAsync(user2Return);
             }

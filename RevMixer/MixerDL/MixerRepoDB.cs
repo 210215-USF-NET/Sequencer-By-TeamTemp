@@ -460,7 +460,6 @@ namespace MixerDL
             _context.ChangeTracker.Clear();
             return comment2BUpdated;
         }
-
         public async Task<User> GetUserByEmail(string userEmail)
         {
             return await _context.User
