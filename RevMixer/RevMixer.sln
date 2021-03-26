@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MixerDL", "MixerDL\MixerDL.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MixerModels", "MixerModels\MixerModels.csproj", "{E04EC360-8C04-4767-A3F9-548020529B81}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MixerTest", "MixerTest\MixerTest.csproj", "{2001E601-EEB1-4A59-B032-04ADB4F55B30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MixerTests", "MixerTests\MixerTest.csproj", "{2001E601-EEB1-4A59-B032-04ADB4F55B30}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MixerREST", "MixerREST\MixerREST.csproj", "{4C29BCBB-5881-4F00-B34B-F8F29A01B7B3}"
 EndProject
