@@ -460,5 +460,22 @@ namespace MixerDL
             _context.ChangeTracker.Clear();
             return comment2BUpdated;
         }
+        public async Task<User> GetUserByEmail(string userEmail)
+        {
+            return await _context.User
+               .Include(u => u.PlayLists)
+               .AsNoTracking()
+               .Include(u => u.UserProjects)
+               .AsNoTracking()
+               .Include(u => u.Sample)
+               .AsNoTracking()
+               .Include(u => u.Comments)
+               .AsNoTracking()
+               .Include(u => u.UploadMusics)
+               .AsNoTracking()
+               .Where(u => u.Email == userEmail)
+               .FirstOrDefaultAsync();
+
+        }
     }
 }

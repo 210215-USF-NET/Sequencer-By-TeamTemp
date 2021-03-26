@@ -53,7 +53,16 @@ namespace MixerREST.Controllers
                 return StatusCode(400);
             }
         }
-
+        //GET api/<UserController>/person @gmail.com
+        [HttpGet]
+        [Route("/api/User/email/{userEmail}")]
+        [Produces("application/json")]
+        public async Task<IActionResult> GetUserByEmail(string userEmail)
+        {
+            var user = await _mixerBL.GetUserByEmail(userEmail);
+            if (user == null) return NotFound();
+            return Ok(user);
+        }
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUserAsync(int id, [FromBody] User user)
