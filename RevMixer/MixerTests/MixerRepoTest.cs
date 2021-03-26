@@ -87,7 +87,7 @@ namespace MixerTests
         //             {
         //                 Id = 1,
         //                 Comment = "First Comment",
-                        
+
         //                 UserId = 1,
         //                 UploadMusicId = 1
         //             }
@@ -788,7 +788,7 @@ namespace MixerTests
                 Assert.Equal(1, testUser.Id);
             }
         }
-         [Fact]
+        [Fact]
         public async void AddUserAsyncShouldAddUser()
         {
             using (var context = new MixerDBContext(options))
@@ -821,12 +821,12 @@ namespace MixerTests
                 //Assert.Null(deletedUser);
                 //Assert.Null(foundUser);
                 //Assert.Null(testUser);
-                 using (var assertContext = new MixerDBContext(options))
-            {
-                var result = assertContext.User.Find(2);
-                Assert.Null(result);
-            }
-                
+                using (var assertContext = new MixerDBContext(options))
+                {
+                    var result = assertContext.User.Find(2);
+                    Assert.Null(result);
+                }
+
             }
         }
         // [Fact]
@@ -966,7 +966,7 @@ namespace MixerTests
         //         Assert.Equal(false, result.Owner);
         //     }
         // }
-         private void Seed()
+        private void Seed()
         {
             using (var context = new MixerDBContext(options))
             {
@@ -1168,9 +1168,10 @@ namespace MixerTests
                     }
 
                     );
+                context.SaveChanges();
             }
         }
-       
+
     }
-    
+
 }
