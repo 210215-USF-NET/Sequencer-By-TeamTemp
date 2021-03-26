@@ -10,7 +10,6 @@ namespace MixerBL
 {
     public interface IMixerBL
     {
-        Task<User> GetUserByEmail(string userEmail);
         Task<UploadMusic> AddUploadedMusicAsync(UploadMusic newUploadedMusic);
         Task<UploadMusic> DeleteUploadedMusicAsync(UploadMusic uploadedMusic2BDeleted);
         Task<UploadMusic> GetUploadedMusicByIDAsync(int id);
