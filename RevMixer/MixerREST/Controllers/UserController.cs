@@ -37,7 +37,16 @@ namespace MixerREST.Controllers
             if (user == null) return NotFound();
             return Ok(user);
         }
-
+        //GET api/<UserController>/person @gmail.com
+        [HttpGet]
+        [Route("/api/User/email/{userEmail}")]
+        [Produces("application/json")]
+        public async Task<IActionResult> GetUserByEmail(string userEmail)
+        {
+            var user = await _mixerBL.GetUserByEmail(userEmail);
+            if (user == null) return NotFound();
+            return Ok(user);
+        }
         // POST api/<UserController>
         [HttpPost]
         [Consumes("application/json")]
