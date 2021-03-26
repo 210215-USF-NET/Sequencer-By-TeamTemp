@@ -245,5 +245,19 @@ namespace MixerBL
         {
             return await _repo.UpdateCommentAsync(comment2BUpdated);
         }
+
+        public async Task<User> GetUserByEmail(string userEmail)
+        {
+            User user2Return = await _repo.GetUserByEmail(userEmail);
+            user2Return.Email = userEmail;
+            if (user2Return == null)
+            {
+                return await _repo.AddUserAsync(user2Return);
+            }
+            else
+            {
+                return user2Return;
+            }
+        }
     }
 }
