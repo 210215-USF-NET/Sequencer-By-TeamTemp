@@ -1168,6 +1168,7 @@ namespace MixerTests
                     }
 
                     );
+                context.SaveChanges();
             }
         }
 
