@@ -477,5 +477,14 @@ namespace MixerDL
                .FirstOrDefaultAsync();
 
         }
+
+
+        public async Task<List<Comments>> GetCommentsByMusicIDAsync(int id)
+        {
+            return await _context.Comments
+                .AsNoTracking()
+                .Where(c => c.UserId == id)
+                .ToListAsync();
+        }
     }
 }
