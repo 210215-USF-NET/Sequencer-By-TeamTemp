@@ -24,5 +24,6 @@
     <ProjectReference Include="..\MixerBL\MixerBL.csproj" />
     <ProjectReference Include="..\MixerDL\MixerDL.csproj" />
     <ProjectReference Include="..\MixerModels\MixerModels.csproj" />
+     <ProjectReference Include="..\MixerREST\MixerREST.csproj" />
   </ItemGroup>
 </Project>
