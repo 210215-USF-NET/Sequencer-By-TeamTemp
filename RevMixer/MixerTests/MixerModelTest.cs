@@ -349,6 +349,10 @@ namespace MixerTests
 
             Assert.Equal(testAdmin, testUser.IsAdmin);
         }
+        public void UserICollectionUserProjectShouldAllowChanges()
+        {
+
+        }
         #endregion
         //UserProject Tests
         #region 

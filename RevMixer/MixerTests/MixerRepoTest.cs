@@ -759,6 +759,54 @@ namespace MixerTests
                 testUser.UserName = "YoloSwaggins";
                 testUser.Email = "YoloSwaggins@email.com";
                 testUser.IsAdmin = false;
+                //UserProject
+                ICollection<UserProject> userProjects = new List<UserProject>();
+                UserProject testUserProject = new UserProject();
+                testUserProject.Id = 4;
+                testUserProject.UserId = 3;
+                testUserProject.ProjectId = 1;
+                testUserProject.Owner = true;
+                userProjects.Add(testUserProject);
+                testUser.UserProjects = userProjects;
+                //Sample
+                ICollection<Sample> userSamples = new List<Sample>();
+                Sample testSample = new Sample();
+                testSample.Id = 4;
+                testSample.UserId = 2;
+                testSample.SampleName = "kick_8";
+                testSample.SampleLink = "kick_8";
+                userSamples.Add(testSample);
+                testUser.UserProjects = userProjects;
+                //comments
+                ICollection<Comments> userComments = new List<Comments>();
+                Comments testComment = new Comments();
+                testComment.Id = 4;
+                testComment.Comment = "First Comment";
+                testComment.CommentData = DateTime.Parse("2021-03-15 18:17:00");
+                testComment.UserId = 2;
+                testComment.UploadMusicId = 1;
+                userComments.Add(testComment);
+                testUser.Comments = userComments;
+                //uploadmusic
+                ICollection<UploadMusic> userUploadMusic = new List<UploadMusic>();
+                UploadMusic testUploadMusic = new UploadMusic();
+                testUploadMusic.Id = 4;
+                testUploadMusic.UserId = 1;
+                testUploadMusic.MusicFilePath = "cool_song";
+                testUploadMusic.Name = "Jumping Jacks";
+                testUploadMusic.UploadDate = DateTime.Parse("2021-03-15 18:17:00");
+                testUploadMusic.Likes = 3409;
+                testUploadMusic.Plays = 9084;
+                userUploadMusic.Add(testUploadMusic);
+                testUser.UploadMusics = userUploadMusic;
+                //playlists
+                ICollection<PlayList> userPlayList = new List<PlayList>();
+                PlayList testPlayList = new PlayList();
+                testPlayList.Id = 4;
+                testPlayList.UserId = 1;
+                testPlayList.Name = "Songs to git gud too";
+                userPlayList.Add(testPlayList);
+                testUser.PlayLists = userPlayList;
                 var newUser = await _repo.AddUserAsync(testUser);
                 Assert.Equal("YoloSwaggins", newUser.UserName);
                 testUser.IsAdmin = true;
