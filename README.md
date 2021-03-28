@@ -34,18 +34,18 @@ they can easily be forgotten. Revmixer provides the framework for musicians to e
 * Socket.io
 
 # Requirements
-- [ ] At least 6 tables
-- [ ] DB that is not SQL Server
-- [ ] Pipeline should be set up
-- [ ] Angular Frontend
-- [ ] ASP.NET REST API Backend
+- [X] At least 6 tables
+- [X] DB that is not SQL Server
+- [X] Pipeline should be set up
+- [X] Angular Frontend
+- [X] ASP.NET REST API Backend
 - [ ] 50% code coverage in sonar cloud
 - [ ] 0% code duplications, A rating on all categories
-- [ ] Deployed to an app service(frontend and backend)
-- [ ] One repo for each project
-- [ ] Authorization should be set up using IDaaS of choosing
-- [ ] ProjectName-By-TeamName (add project name in readme)
+- [X] Deployed to an app service(frontend and backend)
+- [X] One repo for each project
+- [X] Authorization should be set up using IDaaS of choosing
+- [X] ProjectName-By-TeamName (add project name in readme)
 - [x] Create a project proposal
-- [ ] 3rd Part API
+- [X] 3rd Party API
 - [ ] Logging, testing, ect
-- [ ] Implmented SCRUM, have a project board (trello)
+- [X] Implmented SCRUM, have a project board (trello)
