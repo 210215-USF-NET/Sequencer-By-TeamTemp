@@ -40,7 +40,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: '**/RevMixer/MixerTest/*.csproj'
+    projects: '**/RevMixer/MixerTests/*.csproj'
     arguments: --configuration $(buildConfiguration) --collect "Code Coverage"
 
 - task: PublishCodeCoverageResults@1
