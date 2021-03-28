@@ -101,6 +101,23 @@ namespace MixerTests
                 testComment.CommentData = DateTime.Parse("2021-03-15 18:17:00");
                 testComment.UserId = 2;
                 testComment.UploadMusicId = 1;
+                ICollection<User> commentUser = new List<User>();
+                User testUser = new User();
+                testUser.Id = 4;
+                testUser.UserName = "JackLongDog";
+                testUser.Email = "jacklong@gmail.com";
+                testUser.IsAdmin = false;
+                commentUser.Add(testUser);
+                ICollection<UploadMusic> commentUploadMusic = new List<UploadMusic>();
+                UploadMusic testUploadMusic = new UploadMusic();
+                testUploadMusic.Id = 4;
+                testUploadMusic.UserId = 1;
+                testUploadMusic.MusicFilePath = "cool_song";
+                testUploadMusic.Name = "Jumping Jacks";
+                testUploadMusic.UploadDate = DateTime.Parse("2021-03-15 18:17:00");
+                testUploadMusic.Likes = 3409;
+                testUploadMusic.Plays = 9084;
+                commentUploadMusic.Add(testUploadMusic);
                 var newComment = await _repo.AddCommentAsync(testComment);
                 Assert.Equal("First Comment", newComment.Comment);
                 testComment.Comment = "Edit: I was actually second.";
@@ -182,6 +199,22 @@ namespace MixerTests
                 testMusicPlaylist.Id = 4;
                 testMusicPlaylist.PlayListId = 2;
                 testMusicPlaylist.MusicId = 1;
+                ICollection<PlayList> musicPlaylistPlayList = new List<PlayList>();
+                PlayList testPlayList = new PlayList();
+                testPlayList.Id = 4;
+                testPlayList.UserId = 1;
+                testPlayList.Name = "Songs to git gud too";
+                musicPlaylistPlayList.Add(testPlayList);
+                ICollection<UploadMusic> musicPlayListUploadMusic = new List<UploadMusic>();
+                UploadMusic testUploadMusic = new UploadMusic();
+                testUploadMusic.Id = 4;
+                testUploadMusic.UserId = 1;
+                testUploadMusic.MusicFilePath = "cool_song";
+                testUploadMusic.Name = "Jumping Jacks";
+                testUploadMusic.UploadDate = DateTime.Parse("2021-03-15 18:17:00");
+                testUploadMusic.Likes = 3409;
+                testUploadMusic.Plays = 9084;
+                musicPlayListUploadMusic.Add(testUploadMusic);
                 var newMusicPlaylist = await _repo.AddMusicPlaylistAsync(testMusicPlaylist);
                 testMusicPlaylist.PlayListId = 1;
                 var updateMusicPlaylist = await _repo.UpdateMusicPlaylistAsync(testMusicPlaylist);
@@ -254,6 +287,13 @@ namespace MixerTests
                 Pattern testPattern = new Pattern();
                 testPattern.Id = 4;
                 testPattern.PatternData = "123";
+                ICollection<Track> patternTrack = new List<Track>();
+                Track testTrack = new Track();
+                testTrack.Id = 4;
+                testTrack.ProjectId = 2;
+                testTrack.SampleId = 1;
+                testTrack.PatternId = 2;
+                patternTrack.Add(testTrack);
                 var newPattern = await _repo.AddPatternAsync(testPattern);
                 Assert.Equal("123", newPattern.PatternData);
                 testPattern.PatternData = "456";
@@ -335,6 +375,18 @@ namespace MixerTests
                 testPlayList.Id = 4;
                 testPlayList.UserId = 1;
                 testPlayList.Name = "Songs to git gud too";
+                ICollection<MusicPlaylist> playListMusicPlaylist = new List<MusicPlaylist>();
+                MusicPlaylist testMusicPlaylist = new MusicPlaylist();
+                testMusicPlaylist.Id = 4;
+                testMusicPlaylist.PlayListId = 2;
+                testMusicPlaylist.MusicId = 1;
+                playListMusicPlaylist.Add(testMusicPlaylist);
+                User testUser = new User();
+                testUser.Id = 4;
+                testUser.UserName = "JackLongDog";
+                testUser.Email = "jacklong@gmail.com";
+                testUser.IsAdmin = false;
+                testPlayList.User = testUser;
                 var newPlayList = await _repo.AddPlayListAsync(testPlayList);
                 var updatedPlayList = await _repo.UpdatePlayListAsync(testPlayList);
                 testPlayList.Name = "Git Gud";
@@ -420,6 +472,20 @@ namespace MixerTests
                 testSample.UserId = 2;
                 testSample.SampleName = "kick_8";
                 testSample.SampleLink = "kick_8";
+                User testUser = new User();
+                testUser.Id = 4;
+                testUser.UserName = "JackLongDog";
+                testUser.Email = "jacklong@gmail.com";
+                testUser.IsAdmin = false;
+                testSample.User = testUser;
+                ICollection<Track> sampleTrack = new List<Track>();
+                Track testTrack = new Track();
+                testTrack.Id = 4;
+                testTrack.ProjectId = 2;
+                testTrack.SampleId = 1;
+                testTrack.PatternId = 2;
+                sampleTrack.Add(testTrack);
+                testSample.Track = sampleTrack;
                 var newSample = await _repo.AddSampleAsync(testSample);
                 testSample.SampleName = "kick_9";
                 var updateSample = await _repo.UpdateSampleAsync(testSample);
@@ -500,6 +566,22 @@ namespace MixerTests
                 testSavedProject.Id = 4;
                 testSavedProject.ProjectName = "epic project";
                 testSavedProject.BPM = 140;
+                ICollection<UserProject> savedProjectUserProject = new List<UserProject>();
+                UserProject testUserProject = new UserProject();
+                testUserProject.Id = 4;
+                testUserProject.UserId = 1;
+                testUserProject.ProjectId = 1;
+                testUserProject.Owner = true;
+                savedProjectUserProject.Add(testUserProject);
+                testSavedProject.UserProjects = savedProjectUserProject;
+                ICollection<Track> savedProjectTrack = new List<Track>();
+                Track testTrack = new Track();
+                testTrack.Id = 4;
+                testTrack.ProjectId = 2;
+                testTrack.SampleId = 1;
+                testTrack.PatternId = 2;
+                savedProjectTrack.Add(testTrack);
+                testSavedProject.Tracks = savedProjectTrack;
                 var newSavedProject = await _repo.AddSavedProjectAsync(testSavedProject);
                 testSavedProject.ProjectName = "Epic Project";
                 var updateSavedProject = await _repo.UpdateSavedProjectAsync(testSavedProject);
@@ -582,6 +664,21 @@ namespace MixerTests
                 testTrack.ProjectId = 2;
                 testTrack.SampleId = 1;
                 testTrack.PatternId = 2;
+                SavedProject testSavedProject = new SavedProject();
+                testSavedProject.Id = 4;
+                testSavedProject.ProjectName = "epic project";
+                testSavedProject.BPM = 140;
+                testTrack.SavedProject = testSavedProject;
+                Sample testSample = new Sample();
+                testSample.Id = 4;
+                testSample.UserId = 2;
+                testSample.SampleName = "kick_8";
+                testSample.SampleLink = "kick_8";
+                testTrack.Sample = testSample;
+                Pattern testPattern = new Pattern();
+                testPattern.Id = 4;
+                testPattern.PatternData = "123";
+                testTrack.Pattern = testPattern;
                 var newTrack = await _repo.AddTrackAsync(testTrack);
                 testTrack.ProjectId = 3;
                 var updateTrack = await _repo.UpdateTrackAsync(testTrack);
@@ -678,6 +775,28 @@ namespace MixerTests
                 testUploadMusic.UploadDate = DateTime.Parse("2021-03-15 18:17:00");
                 testUploadMusic.Likes = 3409;
                 testUploadMusic.Plays = 9084;
+                ICollection<MusicPlaylist> uploadMusicMusicPlaylist = new List<MusicPlaylist>();
+                MusicPlaylist testMusicPlaylist = new MusicPlaylist();
+                testMusicPlaylist.Id = 4;
+                testMusicPlaylist.PlayListId = 2;
+                testMusicPlaylist.MusicId = 1;
+                uploadMusicMusicPlaylist.Add(testMusicPlaylist);
+                testUploadMusic.MusicPlaylists = uploadMusicMusicPlaylist;
+                ICollection<Comments> uploadMusicComments = new List<Comments>();
+                Comments testComment = new Comments();
+                testComment.Id = 4;
+                testComment.Comment = "First Comment";
+                testComment.CommentData = DateTime.Parse("2021-03-15 18:17:00");
+                testComment.UserId = 2;
+                testComment.UploadMusicId = 1;
+                uploadMusicComments.Add(testComment);
+                testUploadMusic.Comments = uploadMusicComments;
+                User testUser = new User();
+                testUser.Id = 4;
+                testUser.UserName = "JackLongDog";
+                testUser.Email = "jacklong@gmail.com";
+                testUser.IsAdmin = false;
+                testUploadMusic.User = testUser;
                 var newUploadMusic = await _repo.AddUploadedMusicAsync(testUploadMusic);
                 testUploadMusic.Name = "Jumping Jax";
                 var updateUploadMusic = await _repo.UpdateUploadedMusicAsync(testUploadMusic);
@@ -893,6 +1012,17 @@ namespace MixerTests
                 testUserProject.UserId = 1;
                 testUserProject.ProjectId = 1;
                 testUserProject.Owner = true;
+                User testUser = new User();
+                testUser.Id = 4;
+                testUser.UserName = "JackLongDog";
+                testUser.Email = "jacklong@gmail.com";
+                testUser.IsAdmin = false;
+                testUserProject.User = testUser;
+                SavedProject testSavedProject = new SavedProject();
+                testSavedProject.Id = 4;
+                testSavedProject.ProjectName = "epic project";
+                testSavedProject.BPM = 140;
+                testUserProject.SavedProject = testSavedProject;
                 var newUserProject = await _repo.AddUserProjectAsync(testUserProject);
                 Assert.Equal(true, newUserProject.Owner);
                 testUserProject.Owner = false;
@@ -901,6 +1031,8 @@ namespace MixerTests
             }
         }
         #endregion
+        //Seed
+        #region
         private void Seed()
         {
             using (var context = new MixerDBContext(options))
@@ -1106,6 +1238,7 @@ namespace MixerTests
                 context.SaveChanges();
             }
         }
+        #endregion
 
     }
 
