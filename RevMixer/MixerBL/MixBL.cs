@@ -108,6 +108,12 @@ namespace MixerBL
             //Todo: check if the name given is not null or empty string 
             return await _repo.GetUploadedMusicByIDAsync(id);
         }
+        public async Task<List<UploadMusic>> GetUploadedMusicByUserIDAsync(int userid)
+        {
+            //Todo: check if the name given is not null or empty string 
+            return await _repo.GetUploadedMusicByUserIDAsync(userid);
+        }
+
         public async Task<User> GetUserByIDAsync(int id)
         {
             //Todo: check if the name given is not null or empty string 
