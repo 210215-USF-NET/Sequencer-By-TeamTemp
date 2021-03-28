@@ -244,6 +244,15 @@ namespace MixerDL
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<List<UploadMusic>> GetUploadedMusicByUserIDAsync(int userid)
+        {
+            return await _context.UploadMusic
+                .Include(um => um.User)
+                .Include(um => um.Comments)
+                .Where(um => um.UserId == userid)
+                .ToListAsync();
+        }
+
         public async Task<User> GetUserByIDAsync(int id)
         {
             return await _context.User

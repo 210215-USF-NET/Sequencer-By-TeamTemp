@@ -66,5 +66,7 @@ namespace MixerBL
         Task<Comments> UpdateCommentAsync(Comments comment2BUpdated);
 
         Task<List<Comments>> GetCommentsByMusicIDAsync(int id);
+
+        Task<List<UploadMusic>> GetUploadedMusicByUserIDAsync(int userid);
     }
 }

@@ -33,6 +33,17 @@ namespace MixerREST.Controllers
             return Ok(uploadedMusic);
         }
 
+        //GET api/<UploadedMusicController>/uploadedmusic/userid
+        [HttpGet]
+        [Route("/api/UploadedMusic/User/{userid}")]
+        [Produces("application/json")]
+        public async Task<IActionResult> GetUploadedMusicByUserIDAsync(int userID)
+        {
+            var uploadedMusic = await _mixerBL.GetUploadedMusicByUserIDAsync(userID);
+            if (uploadedMusic == null) return NotFound();
+            return Ok(uploadedMusic);
+        }
+
         // POST api/<UploadedMusicController>
         [HttpPost]
         [Consumes("application/json")]
