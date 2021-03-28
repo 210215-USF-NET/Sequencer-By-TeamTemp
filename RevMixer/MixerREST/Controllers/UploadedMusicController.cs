@@ -35,7 +35,7 @@ namespace MixerREST.Controllers
 
         //GET api/<UploadedMusicController>/uploadedmusic/userid
         [HttpGet]
-        [Route("/api/UploadedMusic/User/{userid}")]
+        [Route("/api/UploadedMusic/User/{userID}")]
         [Produces("application/json")]
         public async Task<IActionResult> GetUploadedMusicByUserIDAsync(int userID)
         {
