@@ -225,9 +225,9 @@ namespace MixerBL
             return await _repo.UpdatePatternAsync(pattern2BUpdated);
         }
 
-        public Task<UploadMusic> UpdateUploadedMusicAsync(UploadMusic uploadedMusic2BUpdated)
+        public async Task<UploadMusic> UpdateUploadedMusicAsync(UploadMusic uploadedMusic2BUpdated)
         {
-            throw new NotImplementedException();
+            return await _repo.UpdateUploadedMusicAsync(uploadedMusic2BUpdated);
         }
         public async Task<UserProject> UpdateUserProjectAsync(UserProject userProject2BUpdated)
         {
@@ -260,6 +260,12 @@ namespace MixerBL
             {
                 return user2Return;
             }
+        }
+
+
+        public async Task<List<Comments>> GetCommentsByMusicIDAsync(int id)
+        {
+            return await _repo.GetCommentsByMusicIDAsync(id);
         }
     }
 }
