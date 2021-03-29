@@ -737,6 +737,26 @@ namespace MixerTests
             }
         }
         [Fact]
+        public async void GetUploadedMusicByUserIDAsyncShouldReturnUploadedMusic()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+                UploadMusic testUploadMusic = new UploadMusic();
+                testUploadMusic.Id = 4;
+                testUploadMusic.UserId = 1;
+                testUploadMusic.MusicFilePath = "cool_song";
+                testUploadMusic.Name = "Jumping Jacks";
+                testUploadMusic.UploadDate = DateTime.Parse("2021-03-15 18:17:00");
+                testUploadMusic.Likes = 3409;
+                testUploadMusic.Plays = 9084;
+                var newUploadMusic = await _repo.AddUploadedMusicAsync(testUploadMusic);
+                var foundUploadedMusic = await _repo.GetUploadedMusicByUserIDAsync(1);
+                Assert.NotNull(foundUploadedMusic);
+                Assert.Equal(1, testUploadMusic.UserId);
+            }
+        }
+        [Fact]
         public async void AddUploadedMusicAsyncShouldAddUploadedMusic()
         {
             using (var context = new MixerDBContext(options))

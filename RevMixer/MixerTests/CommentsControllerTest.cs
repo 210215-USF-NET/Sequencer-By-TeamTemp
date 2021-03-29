@@ -21,16 +21,15 @@ namespace MixerTests
             _mixBLMock = new Mock<IMixerBL>();
         }
         // [Fact]
-        // public async Task GetCommentByMusicIdShouldGetComments()
+        // public async Task GetCommentByMusicIdShouldGetComment()
         // {
-        //     var commentId = 1;
-        //     var uploadMusic = new UploadMusic { Id = commentId };
-        //     var comment = new Comments { UploadMusicId = commentId };
+        //     var uMId = 1;
+        //     var comment = new Comments { UploadMusicId = uMId };
         //     _mixBLMock.Setup(x => x.GetCommentsByMusicIDAsync(It.IsAny<int>())).Returns(Task.FromResult(comment));
         //     var commentController = new CommentsController(_mixBLMock.Object);
-        //     var result = await commentController.GetCommentsByMusicIDAsync(commentId);
-        //     Assert.Equal(commentId, ((Comments)((OkObjectResult)result).Value).UploadMusicId);
-        //     _mixBLMock.Verify(x => x.GetCommentsByMusicIDAsync(commentId));
+        //     var result = await commentController.GetCommentsByMusicIDAsync(uMId);
+        //     Assert.Equal(uMId, ((Comments)((OkObjectResult)result).Value).UploadMusicId);
+        //     _mixBLMock.Verify(x => x.GetCommentsByMusicIDAsync(uMId));
         // }
      
     }
