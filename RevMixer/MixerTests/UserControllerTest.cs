@@ -31,7 +31,20 @@ namespace MixerTests
             Assert.Equal(userId, ((User)((OkObjectResult)result).Value).Id);
             _mixBLMock.Verify(x => x.GetUserByIDAsync(userId));
         }
-         [Fact]
+        //  [Fact]
+        // public async Task AddUserShouldAddUser()
+        // {
+        //     var userName = "test";
+        //     var userEmail = "test@email.com";
+        //     bool admin = true;
+        //     var user = new User { UserName = userName, Email = userEmail, IsAdmin = admin};
+        //     _mixBLMock.Setup(x => x.GetUserByEmail(It.IsAny<string>())).Returns(Task.FromResult(user));
+        //     var userController = new UserController(_mixBLMock.Object);
+        //     var result = await userController.AddUserAsync(user);
+        //     Assert.Equal(userName, ((User)((OkObjectResult)result).Value).UserName);
+        //     _mixBLMock.Verify(x => x.GetUserByEmail(userEmail));
+        // }
+          [Fact]
         public async Task GetUserByEmailShouldGetUser()
         {
             var userEmail = "test@email.com";
