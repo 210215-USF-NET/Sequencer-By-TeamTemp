@@ -31,17 +31,17 @@ namespace MixerTests
             Assert.Equal(uploadMusicId, ((UploadMusic)((OkObjectResult)result).Value).Id);
             _mixBLMock.Verify(x => x.GetUploadedMusicByIDAsync(uploadMusicId));
         }
-        // [Fact]
-        // public async Task GetUploadedMusicByUserIdShouldGetUploadedMusic()
-        // {
-        //     var id = 1;
-        //     var uploadMusic = new UploadMusic { UserId = id };
-        //     _mixBLMock.Setup(x => x.GetUploadedMusicByUserIDAsync(It.IsAny<int>())).Returns(Task.FromResult(uploadMusic));
-        //     var uploadedMusicController = new UploadedMusicController(_mixBLMock.Object);
-        //     var result = await uploadedMusicController.GetUploadedMusicByUserIDAsync(id);
-        //     Assert.Equal(id, ((UploadMusic)((OkObjectResult)result).Value).UserId);
-        //     _mixBLMock.Verify(x => x.GetUploadedMusicByUserIDAsync(id));
-        // }
+        [Fact]
+        public async Task GetUploadedMusicByUserIdShouldGetUploadedMusic()
+        {
+            var id = 1;
+            List<UploadMusic> uploadMusic = new List<UploadMusic>{ new UploadMusic {UserId = id} };
+            _mixBLMock.Setup(x => x.GetUploadedMusicByUserIDAsync(It.IsAny<int>())).Returns(Task.FromResult(uploadMusic));
+            var uploadedMusicController = new UploadedMusicController(_mixBLMock.Object);
+            var result = await uploadedMusicController.GetUploadedMusicByUserIDAsync(id);
+            Assert.Equal(id, ((List<UploadMusic>)((OkObjectResult)result).Value)[0].UserId);
+            _mixBLMock.Verify(x => x.GetUploadedMusicByUserIDAsync(id));
+        }
         
     }
 }

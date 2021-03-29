@@ -20,17 +20,17 @@ namespace MixerTests
         {
             _mixBLMock = new Mock<IMixerBL>();
         }
-        // [Fact]
-        // public async Task GetCommentByMusicIdShouldGetComment()
-        // {
-        //     var uMId = 1;
-        //     var comment = new Comments { UploadMusicId = uMId };
-        //     _mixBLMock.Setup(x => x.GetCommentsByMusicIDAsync(It.IsAny<int>())).Returns(Task.FromResult(comment));
-        //     var commentController = new CommentsController(_mixBLMock.Object);
-        //     var result = await commentController.GetCommentsByMusicIDAsync(uMId);
-        //     Assert.Equal(uMId, ((Comments)((OkObjectResult)result).Value).UploadMusicId);
-        //     _mixBLMock.Verify(x => x.GetCommentsByMusicIDAsync(uMId));
-        // }
+        [Fact]
+        public async Task GetCommentByMusicIdShouldGetComment()
+        {
+            var uMId = 1;
+            List<Comments> comment = new List<Comments> { new Comments {UploadMusicId = uMId} };
+            _mixBLMock.Setup(x => x.GetCommentsByMusicIDAsync(It.IsAny<int>())).Returns(Task.FromResult(comment));
+            var commentController = new CommentsController(_mixBLMock.Object);
+            var result = await commentController.GetCommentsByMusicIDAsync(uMId);
+            Assert.Equal(uMId, ((List<Comments>)((OkObjectResult)result).Value)[0].UploadMusicId);
+            _mixBLMock.Verify(x => x.GetCommentsByMusicIDAsync(uMId));
+        }
      
     }
 }
