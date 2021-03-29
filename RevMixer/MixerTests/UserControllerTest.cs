@@ -38,7 +38,7 @@ namespace MixerTests
         //     var userEmail = "test@email.com";
         //     bool admin = true;
         //     var user = new User { UserName = userName, Email = userEmail, IsAdmin = admin};
-        //     _mixBLMock.Setup(x => x.GetUserByEmail(It.IsAny<string>())).Returns(Task.FromResult(user));
+        //     _mixBLMock.Setup(x => x.AddUserAsync(It.IsAny<User>())).Returns(Task.FromResult(user));
         //     var userController = new UserController(_mixBLMock.Object);
         //     var result = await userController.AddUserAsync(user);
         //     Assert.Equal(userName, ((User)((OkObjectResult)result).Value).UserName);

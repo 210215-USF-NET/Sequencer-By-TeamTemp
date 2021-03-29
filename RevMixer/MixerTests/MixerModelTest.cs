@@ -69,6 +69,32 @@ namespace MixerTests
 
             Assert.Equal(testId, testComment.UserId);
         }
+        [Fact]
+        public void CommentUserShouldBeSet()
+        {
+            var newComment = new Comments
+            {
+                Id = 1,
+                Comment = "Test",
+                UserId = 1,
+                User = new User { Id = 1, UserName = "TestName", Email = "TestEmail", IsAdmin = false }
+            };
+            Assert.Equal("TestName", newComment.User.UserName);
+        }
+        [Fact]
+        public void CommentUploadedMusicShouldBeSet()
+        {
+            var newComment = new Comments
+            {
+                Id = 1,
+                Comment = "Test",
+                UserId = 1,
+                User = new User { Id = 1, UserName = "TestName", Email = "TestEmail", IsAdmin = false },
+                UploadMusicId = 1,
+                UploadedMusic = new UploadMusic { Id = 1, UserId = 1, MusicFilePath = "test", Name = "Song" }
+            };
+            Assert.Equal("Song", newComment.UploadedMusic.Name);
+        }
         #endregion
         //MusicPlaylist tests
         #region
@@ -102,6 +128,20 @@ namespace MixerTests
 
             Assert.Equal(testId, testMusicPlaylist.MusicId);
         }
+        [Fact]
+        public void MusicPlayListPlayListShouldBeSet()
+        {
+            PlayList playList = new PlayList { Name = "Test" };
+            testMusicPlaylist.PlayList = playList;
+            Assert.Equal("Test", testMusicPlaylist.PlayList.Name);
+        }
+        [Fact]
+        public void MusicPlayListUploadMusicShouldBeSet()
+        {
+            UploadMusic upload = new UploadMusic { Name = "Test" };
+            testMusicPlaylist.UploadMusic = upload;
+            Assert.Equal("Test", testMusicPlaylist.UploadMusic.Name);
+        }
         #endregion
         //Pattern tests
         #region 
@@ -123,6 +163,49 @@ namespace MixerTests
             testPattern.PatternData = testPatternData;
 
             Assert.Equal(testPatternData, testPattern.PatternData);
+        }
+        #endregion
+        //PlayList test
+        #region 
+        [Fact]
+        public void PlayListIdShouldBeSet()
+        {
+
+            int testId = 1;
+
+            testPlayList.Id = testId;
+
+            Assert.Equal(testId, testPlayList.Id);
+        }
+        [Fact]
+        public void PlayListUserIdShouldBeSet()
+        {
+
+            int testId = 1;
+
+            testPlayList.UserId = testId;
+
+            Assert.Equal(testId, testPlayList.UserId);
+        }
+         [Fact]
+        public void PlayListNameShouldBeSet()
+        {
+
+            string testName = "Test";
+
+            testPlayList.Name = testName;
+
+            Assert.Equal(testName, testPlayList.Name);
+        }
+        [Fact]
+         public void PlayListUserShouldBeSet()
+        {
+
+            User user = new User {UserName = "Test"};
+
+            testPlayList.User = user;
+
+            Assert.Equal("Test", testPlayList.User.UserName);
         }
         #endregion
         //Sample Tests
@@ -162,6 +245,16 @@ namespace MixerTests
             testSample.SampleLink = testLink;
 
             Assert.Equal(testLink, testSample.SampleLink);
+        }
+        [Fact]
+         public void SampleUserShouldBeSet()
+        {
+
+            User user = new User {UserName = "Test"};
+
+            testSample.User = user;
+
+            Assert.Equal("Test", testSample.User.UserName);
         }
         #endregion
         //SavedProject Tests
@@ -232,6 +325,36 @@ namespace MixerTests
             testTrack.PatternId = testId;
 
             Assert.Equal(testId, testTrack.PatternId);
+        }
+          [Fact]
+         public void TrackSavedProjectShouldBeSet()
+        {
+
+            SavedProject saved = new SavedProject {ProjectName = "Test"};
+
+            testTrack.SavedProject = saved;
+
+            Assert.Equal("Test", testTrack.SavedProject.ProjectName);
+        }
+            [Fact]
+         public void TrackSampleShouldBeSet()
+        {
+
+            Sample sample = new Sample {SampleName = "Test"};
+
+            testTrack.Sample = sample;
+
+            Assert.Equal("Test", testTrack.Sample.SampleName);
+        }
+            [Fact]
+         public void TrackPatternShouldBeSet()
+        {
+
+            Pattern pattern = new Pattern {PatternData = "Test"};
+
+            testTrack.Pattern = pattern;
+
+            Assert.Equal("Test", testTrack.Pattern.PatternData);
         }
         #endregion
         //UploadMusic
@@ -305,6 +428,16 @@ namespace MixerTests
             testUploadMusic.Plays = testPlays;
 
             Assert.Equal(testPlays, testUploadMusic.Plays);
+        }
+          [Fact]
+         public void UploadMusicUserShouldBeSet()
+        {
+
+            User user = new User {UserName = "Test"};
+
+            testUploadMusic.User = user;
+
+            Assert.Equal("Test", testUploadMusic.User.UserName);
         }
         #endregion
         //User Tests
@@ -395,6 +528,26 @@ namespace MixerTests
             testUserProject.Owner = testOwner;
 
             Assert.Equal(testOwner, testUserProject.Owner);
+        }
+          [Fact]
+         public void UserProjectUserShouldBeSet()
+        {
+
+            User user = new User {UserName = "Test"};
+
+            testUserProject.User = user;
+
+            Assert.Equal("Test", testUserProject.User.UserName);
+        }
+          [Fact]
+         public void UserProjectSavedProjectShouldBeSet()
+        {
+
+            SavedProject save = new SavedProject {ProjectName = "Test"};
+
+            testUserProject.SavedProject = save;
+
+            Assert.Equal("Test", testUserProject.SavedProject.ProjectName);
         }
         #endregion
 
