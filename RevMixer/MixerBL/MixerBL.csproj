@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AWSSDK.Core" Version="3.7.0.3" />
+    <PackageReference Include="AWSSDK.S3" Version="3.7.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MixerDL\MixerDL.csproj" />
     <ProjectReference Include="..\MixerModels\MixerModels.csproj" />
   </ItemGroup>

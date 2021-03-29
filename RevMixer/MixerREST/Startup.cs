@@ -73,6 +73,7 @@ namespace MixerREST
 
 
             services.AddScoped<IMixerRepoDB, MixerRepoDB>();
+
             services.AddScoped<IMixerBL, MixBL>();
         }
 
