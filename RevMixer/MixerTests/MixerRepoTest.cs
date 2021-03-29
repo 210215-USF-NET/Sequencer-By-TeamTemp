@@ -54,6 +54,22 @@ namespace MixerTests
             }
         }
         [Fact]
+        public async void GetCommentByMusicIDAsyncShouldReturnComment()
+        {
+            using (var context = new MixerDBContext(options))
+            {
+                IMixerRepoDB _repo = new MixerRepoDB(context);
+
+                Comments testComment = new Comments();
+                testComment.Id = 1;
+                testComment.Comment = "First Comment";
+                testComment.CommentData = DateTime.Parse("2021-03-15 18:17:00");
+                testComment.UserId = 2;
+                testComment.UploadMusicId = 1;
+                var foundComment = await _repo.GetCommentsByMusicIDAsync(1);
+                Assert.Equal(1, testComment.Id);
+            }
+        }
         public async void AddCommentAsyncShouldAddComment()
         {
             using (var context = new MixerDBContext(options))
