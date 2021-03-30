@@ -31,20 +31,17 @@ namespace MixerTests
             Assert.Equal(userId, ((User)((OkObjectResult)result).Value).Id);
             _mixBLMock.Verify(x => x.GetUserByIDAsync(userId));
         }
-        //  [Fact]
-        // public async Task AddUserShouldAddUser()
-        // {
-        //     var userName = "test";
-        //     var userEmail = "test@email.com";
-        //     bool admin = true;
-        //     var user = new User { UserName = userName, Email = userEmail, IsAdmin = admin};
-        //     _mixBLMock.Setup(x => x.AddUserAsync(It.IsAny<User>())).Returns(Task.FromResult(user));
-        //     var userController = new UserController(_mixBLMock.Object);
-        //     var result = await userController.AddUserAsync(user);
-        //     Assert.Equal(userName, ((User)((OkObjectResult)result).Value).UserName);
-        //     _mixBLMock.Verify(x => x.GetUserByEmail(userEmail));
-        // }
-          [Fact]
+        [Fact]
+        public async Task AddUserShouldAddUser()
+        {
+            var user = new User();
+            _mixBLMock.Setup(x => x.AddUserAsync(It.IsAny<User>())).Returns(Task.FromResult<User>(user));
+            var userController = new UserController(_mixBLMock.Object);
+            var result = await userController.AddUserAsync(new User());
+            Assert.IsAssignableFrom<CreatedAtActionResult>(result);
+            _mixBLMock.Verify(x => x.AddUserAsync((It.IsAny<User>())));
+        }
+        [Fact]
         public async Task GetUserByEmailShouldGetUser()
         {
             var userEmail = "test@email.com";
@@ -54,26 +51,6 @@ namespace MixerTests
             var result = await userController.GetUserByEmail(userEmail);
             Assert.Equal(userEmail, ((User)((OkObjectResult)result).Value).Email);
             _mixBLMock.Verify(x => x.GetUserByEmail(userEmail));
-        }
-        private List<User> GetTestUsers()
-        {
-            var users = new List<User>();
-            users.Add(new User()
-            {
-                Id = 1,
-                UserName = "WestonD123",
-                Email = "westondavidson@outlook.com",
-                IsAdmin = true
-
-            });
-            users.Add(new User()
-            {
-                Id = 2,
-                UserName = "JackLongDog",
-                Email = "jacklong@gmail.com",
-                IsAdmin = false
-            });
-            return users;
         }
     }
 }

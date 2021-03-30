@@ -41,6 +41,17 @@ namespace MixerTests
             var result = await uploadedMusicController.GetUploadedMusicByUserIDAsync(id);
             Assert.Equal(id, ((List<UploadMusic>)((OkObjectResult)result).Value)[0].UserId);
             _mixBLMock.Verify(x => x.GetUploadedMusicByUserIDAsync(id));
+        
+        }
+         [Fact]
+        public async Task AddUploadedMusicShouldAddUploadedMusic()
+        {
+            var upload = new UploadMusic();
+            _mixBLMock.Setup(x => x.AddUploadedMusicAsync(It.IsAny<UploadMusic>())).Returns(Task.FromResult<UploadMusic>(upload));
+            var uploadedMusicController = new UploadedMusicController(_mixBLMock.Object);
+            var result = await uploadedMusicController.AddUploadedMusicAsync(new UploadMusic());
+            Assert.IsAssignableFrom<CreatedAtActionResult>(result);
+            _mixBLMock.Verify(x => x.AddUploadedMusicAsync((It.IsAny<UploadMusic>())));
         }
         
     }

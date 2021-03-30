@@ -31,6 +31,16 @@ namespace MixerTests
             Assert.Equal(savedProjectId, ((SavedProject)((OkObjectResult)result).Value).Id);
             _mixBLMock.Verify(x => x.GetSavedProjectByIDAsync(savedProjectId));
         }
+         [Fact]
+        public async Task AddSavedProjectShouldAddSavedProject()
+        {
+            var save = new SavedProject();
+            _mixBLMock.Setup(x => x.AddSavedProjectAsync(It.IsAny<SavedProject>())).Returns(Task.FromResult<SavedProject>(save));
+            var savedProjectController = new SavedProjectsController(_mixBLMock.Object);
+            var result = await savedProjectController.AddSavedProjectAsync(new SavedProject());
+            Assert.IsAssignableFrom<CreatedAtActionResult>(result);
+            _mixBLMock.Verify(x => x.AddSavedProjectAsync((It.IsAny<SavedProject>())));
+        }
         
     }
 }
