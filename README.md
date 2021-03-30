@@ -14,11 +14,11 @@ they can easily be forgotten. Revmixer provides the framework for musicians to e
 - [X] Ability to view music uploaded by other musicians
 - [X] User can browse a gallery of updated music
 - [ ] User can add comments to uploaded music
-- [ ] User can create a playlist and add uploadedmusic to the playlist
 
 # Stretch Goal
 * User can share their project with other musicians to collaborate on
 * User can upload their own samples
+* User can create a playlist and add uploadedmusic to the playlist
 
 # ERD
 ![ER Diagram](ER.jpg)
