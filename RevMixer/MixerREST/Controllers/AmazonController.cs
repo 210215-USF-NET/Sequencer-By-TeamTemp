@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Amazon.S3.Transfer;
 using Amazon.S3;
+using Microsoft.AspNetCore.Cors;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -34,7 +35,7 @@ namespace MixerREST.Controllers
 
         // POST api/<AmazonController>/5
         [HttpPost, DisableRequestSizeLimit]
-        public String PostSongToStorage(IFormFile files)
+        public async Task<IActionResult> PostSongToStorageAsync(IFormFile files)
         {
             var file = files;
             string fileName = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + files.FileName;
@@ -43,18 +44,15 @@ namespace MixerREST.Controllers
 
             if (file.Length > 0)
             {
-                using (var stream = new FileStream(fileName, FileMode.Create))
+                using (var stream = System.IO.File.Create(fileName))
                 {
-                    file.CopyTo(stream);
+                    await file.CopyToAsync(stream);
                 }
-                transferUtility.Upload(fileName, bucketName);
-                return fileName;
-            }
-            else
-            {
-                return StatusCode(500).ToString();
+                await transferUtility.UploadAsync(fileName, bucketName);
             }
 
+
+            return Ok(new { name = fileName });
 
 
 
