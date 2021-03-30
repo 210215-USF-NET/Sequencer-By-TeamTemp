@@ -34,10 +34,10 @@ namespace MixerREST.Controllers
 
         // POST api/<AmazonController>/5
         [HttpPost, DisableRequestSizeLimit]
-        public String PostSongToStorage(List<IFormFile> files)
+        public String PostSongToStorage(IFormFile files)
         {
-            var file = files[0];
-            string fileName = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + files.First().FileName;
+            var file = files;
+            string fileName = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + files.FileName;
             TransferUtility transferUtility = new TransferUtility();
             string bucketName = "uploaded-music-revmixer";
 
