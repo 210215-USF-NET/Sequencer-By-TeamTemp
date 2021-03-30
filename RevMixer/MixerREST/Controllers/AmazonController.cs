@@ -38,7 +38,7 @@ namespace MixerREST.Controllers
         public async Task<IActionResult> PostSongToStorageAsync()
         {
             var file = Request.Form.Files[0];
-            string fileName = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + file.FileName;
+            string fileName = Guid.NewGuid().ToString() + file.FileName;
             TransferUtility transferUtility = new TransferUtility();
             string bucketName = "uploaded-music-revmixer";
 
