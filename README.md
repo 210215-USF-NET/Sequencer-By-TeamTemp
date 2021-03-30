@@ -39,7 +39,8 @@ they can easily be forgotten. Revmixer provides the framework for musicians to e
 - [X] Pipeline should be set up
 - [X] Angular Frontend
 - [X] ASP.NET REST API Backend
-- [ ] 50% code coverage in sonar cloud
+- [X] 50% code coverage in sonar cloud API
+- [ ] 50% code coverage in sonar cloud Angular
 - [ ] 0% code duplications, A rating on all categories
 - [X] Deployed to an app service(frontend and backend)
 - [X] One repo for each project
