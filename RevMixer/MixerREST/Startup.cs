@@ -88,7 +88,13 @@ namespace MixerREST
             }
 
 
-            app.UseCors();
+            app.UseCors(x =>
+            x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            );
+
 
             app.UseHttpsRedirection();
 
@@ -97,6 +103,7 @@ namespace MixerREST
 
 
             app.UseAuthorization();
+
             app.UseSwagger();
 
             app.UseEndpoints(endpoints =>
