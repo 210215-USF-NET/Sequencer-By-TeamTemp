@@ -35,10 +35,10 @@ namespace MixerREST.Controllers
 
         // POST api/<AmazonController>/5
         [HttpPost, DisableRequestSizeLimit]
-        public async Task<IActionResult> PostSongToStorageAsync(IFormFile files)
+        public async Task<IActionResult> PostSongToStorageAsync()
         {
-            var file = files;
-            string fileName = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + files.FileName;
+            var file = Request.Form.Files[0];
+            string fileName = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + file.FileName;
             TransferUtility transferUtility = new TransferUtility();
             string bucketName = "uploaded-music-revmixer";
 
