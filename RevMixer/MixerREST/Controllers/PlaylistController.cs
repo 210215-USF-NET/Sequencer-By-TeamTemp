@@ -29,6 +29,7 @@ namespace MixerREST.Controllers
 
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
+        [Produces("application/json")]
         public async Task<IActionResult> GetPlaylistByIDAsync(int id)
         {
             var playlist = await _mixerBL.GetPlayListByIDAsync(id);
@@ -38,6 +39,7 @@ namespace MixerREST.Controllers
 
         // POST api/<ValuesController>
         [HttpPost]
+        [Consumes("application/json")]
         public async Task<IActionResult> AddPlaylistAsync([FromBody] PlayList playlist)
         {
             try
