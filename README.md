@@ -15,7 +15,7 @@ they can easily be forgotten. Revmixer provides the framework for musicians to e
 - [ ] User can upload their own samples
 - [X] User can browse a gallery of updated music
 - [ ] User can add comments to uploaded music
-- [ ] [ ] User can create a playlist and add uploadedmusic to the playlist
+- [ ] User can create a playlist and add uploadedmusic to the playlist
 
 # Stretch Goal
 * User can share their project with other musicians to collaborate on
