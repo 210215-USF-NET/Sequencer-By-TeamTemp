@@ -31,6 +31,16 @@ namespace MixerTests
             Assert.Equal(uMId, ((List<Comments>)((OkObjectResult)result).Value)[0].UploadMusicId);
             _mixBLMock.Verify(x => x.GetCommentsByMusicIDAsync(uMId));
         }
+        [Fact]
+        public async Task AddCommentShouldAddComment()
+        {
+            var comment = new Comments();
+            _mixBLMock.Setup(x => x.AddCommentAsync(It.IsAny<Comments>())).Returns(Task.FromResult<Comments>(comment));
+            var commentsController = new CommentsController(_mixBLMock.Object);
+            var result = await commentsController.AddCommentAsync(new Comments());
+            Assert.IsAssignableFrom<CreatedAtActionResult>(result);
+            _mixBLMock.Verify(x => x.AddCommentAsync((It.IsAny<Comments>())));
+        }
      
     }
 }
