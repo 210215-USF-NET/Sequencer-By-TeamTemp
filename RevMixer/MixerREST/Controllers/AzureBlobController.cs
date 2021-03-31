@@ -41,8 +41,8 @@ namespace MixerREST.Controllers
         public async Task<IActionResult> PostSongToStorageAsync()
         {
             var file = Request.Form.Files[0];
-            string localPath = @"C:\local\Temp\";
             string fileName = Guid.NewGuid().ToString() + file.FileName;
+            string localPath = @"C:\local\Temp\" + Guid.NewGuid().ToString();
             string fileType = file.ContentType;
             string containerEndpoint = "https://revmixerstorage.blob.core.windows.net/revmixersongs";
             BlobContainerClient containerClient = new BlobContainerClient(new Uri(containerEndpoint), new DefaultAzureCredential(new DefaultAzureCredentialOptions { ExcludeSharedTokenCacheCredential = true }));
