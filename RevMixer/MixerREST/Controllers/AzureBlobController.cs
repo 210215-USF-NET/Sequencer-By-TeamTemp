@@ -41,6 +41,7 @@ namespace MixerREST.Controllers
         public async Task<IActionResult> PostSongToStorageAsync()
         {
             var file = Request.Form.Files[0];
+            string localPath = System.IO.Path.GetTempPath();
             string fileName = Guid.NewGuid().ToString() + file.FileName;
             string fileType = file.ContentType;
             string containerEndpoint = "https://revmixerstorage.blob.core.windows.net/revmixersongs";
@@ -54,7 +55,7 @@ namespace MixerREST.Controllers
 
                 if (file.Length > 0)
                 {
-                    using (var stream = System.IO.File.Create(fileName))
+                    using (var stream = System.IO.File.Create(localPath))
                     {
                         file.CopyTo(stream);
                         stream.Position = 0;
@@ -78,7 +79,7 @@ namespace MixerREST.Controllers
             }
             catch (Exception e)
             {
-                return Ok(e.Message);
+                return Ok(new { error = e.Message });
             }
 
 
