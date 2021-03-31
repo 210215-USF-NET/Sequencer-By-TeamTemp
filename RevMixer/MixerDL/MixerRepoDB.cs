@@ -184,7 +184,6 @@ namespace MixerDL
                 .Select(sample => sample)
                 .ToListAsync();
         }
-
         public async Task<SavedProject> GetSavedProjectByIDAsync(int savedProjectID)
         {
             return await _context.SavedProject

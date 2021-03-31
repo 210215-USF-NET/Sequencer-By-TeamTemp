@@ -50,8 +50,11 @@ namespace MixerBL
         }
         public async Task<PlayList> AddPlayListAsync(PlayList newPlayList)
         {
-            //Todo: Add BL
-            return await _repo.AddPlayListAsync(newPlayList);
+            PlayList playList2Add = new PlayList();
+            playList2Add.Id = newPlayList.Id;
+            playList2Add.Name = newPlayList.Name;
+            playList2Add.UserId = newPlayList.UserId;
+            return await _repo.AddPlayListAsync(playList2Add);
         }
         public async Task<MusicPlaylist> AddMusicPlaylistAsync(MusicPlaylist newMusicPlaylist)
         {

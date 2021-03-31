@@ -45,8 +45,9 @@ namespace MixerREST.Controllers
                 await _mixerBL.AddCommentAsync(comment);
                 return CreatedAtAction("AddComment", comment);
             }
-            catch
+            catch(Exception e)
             {
+                Console.WriteLine("Error message - " + e.Message);
                 return StatusCode(400);
             }
         }

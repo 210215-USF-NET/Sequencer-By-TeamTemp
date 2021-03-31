@@ -47,8 +47,10 @@ namespace MixerREST.Controllers
                 await _mixerBL.AddPlayListAsync(playlist);
                 return CreatedAtAction("AddPlaylist", playlist);
             }
-            catch
+            catch(Exception e)
             {
+                Console.WriteLine("Error Message - " + e.Message);
+                Console.WriteLine("Inner - " + e.InnerException.Message);
                 return StatusCode(400);
             }
         }
