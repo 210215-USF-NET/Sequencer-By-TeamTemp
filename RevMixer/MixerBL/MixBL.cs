@@ -15,7 +15,18 @@ namespace MixerBL
         }
         public async Task<UploadMusic> AddUploadedMusicAsync(UploadMusic newUploadedMusic)
         {
+            /*            PlayList playList2Add = new PlayList();
+                        playList2Add.Id = newPlayList.Id;
+                        playList2Add.Name = newPlayList.Name;
+                        playList2Add.UserId = newPlayList.UserId;
+                        return await _repo.AddPlayListAsync(playList2Add);*/
             //Todo: Add BL
+            UploadMusic uploadMusic2Add = new UploadMusic();
+            uploadMusic2Add.Id = newUploadedMusic.Id;
+            uploadMusic2Add.MusicFilePath = newUploadedMusic.MusicFilePath;
+            uploadMusic2Add.Name = newUploadedMusic.Name;
+            uploadMusic2Add.UploadDate = DateTime.Now;
+            uploadMusic2Add.UserId = newUploadedMusic.UserId;
             return await _repo.AddUploadedMusicAsync(newUploadedMusic);
         }
         public async Task<User> AddUserAsync(User newUser)
