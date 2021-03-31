@@ -75,7 +75,7 @@ namespace MixerREST.Controllers
 
                     }
                 }
-                return Ok(new { name = fileName });
+                return Ok(new { name = fileName, songname = file.FileName });
             }
             catch (Exception e)
             {
