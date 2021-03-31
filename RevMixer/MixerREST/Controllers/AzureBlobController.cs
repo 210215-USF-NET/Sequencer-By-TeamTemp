@@ -41,7 +41,7 @@ namespace MixerREST.Controllers
         public async Task<IActionResult> PostSongToStorageAsync()
         {
             var file = Request.Form.Files[0];
-            string localPath = System.IO.Path.GetTempPath();
+            string localPath = @"C:\local\Temp\";
             string fileName = Guid.NewGuid().ToString() + file.FileName;
             string fileType = file.ContentType;
             string containerEndpoint = "https://revmixerstorage.blob.core.windows.net/revmixersongs";
