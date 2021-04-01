@@ -63,6 +63,17 @@ namespace MixerTests
             Assert.IsAssignableFrom<NoContentResult>(result);
             _mixBLMock.Verify(x => x.DeleteUploadedMusicAsync((It.IsAny<UploadMusic>())));
         }
+        [Fact]
+        public async Task UpdateUploadedMusicShouldUpdateUploadedMusic()
+        {
+            var upload = new UploadMusic { Id = 1 };
+            _mixBLMock.Setup(x => x.UpdateUploadedMusicAsync(It.IsAny<UploadMusic>())).Returns(Task.FromResult(upload));
+            var uploadController = new UploadedMusicController(_mixBLMock.Object);
+            var result = await uploadController.UpdateUploadedMusicAsync(upload.Id, upload);
+            Assert.IsAssignableFrom<NoContentResult>(result);
+            _mixBLMock.Verify(x => x.UpdateUploadedMusicAsync(upload));
+
+        }
         
     }
 }

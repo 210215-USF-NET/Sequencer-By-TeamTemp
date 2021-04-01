@@ -51,6 +51,17 @@ namespace MixerTests
             Assert.IsAssignableFrom<NoContentResult>(result);
             _mixBLMock.Verify(x => x.DeleteSampleAsync((It.IsAny<Sample>())));
         }
+        [Fact]
+        public async Task UpdateSampleShouldUpdateSample()
+        {
+            var sample = new Sample { Id = 1 };
+            _mixBLMock.Setup(x => x.UpdateSampleAsync(It.IsAny<Sample>())).Returns(Task.FromResult(sample));
+            var sampleController = new SampleController(_mixBLMock.Object);
+            var result = await sampleController.UpdateSampleAsynchAsync(sample.Id, sample);
+            Assert.IsAssignableFrom<NoContentResult>(result);
+            _mixBLMock.Verify(x => x.UpdateSampleAsync(sample));
+
+        }
      
     }
 }
