@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Cors;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Azure.Identity;
+using Serilog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -72,7 +73,7 @@ namespace MixerREST.Controllers
                                 ContentType = fileType
                             },
                             conditions: null);
-
+                        Log.Logger.Information($"File {fileName} uploaded to azure blob storage");
                     }
                 }
                 return Ok(new { name = fileName, songname = file.FileName });

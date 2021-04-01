@@ -74,8 +74,19 @@ namespace MixerBL
         }
         public async Task<Comments> AddCommentAsync(Comments newComment)
         {
+            /*            PlayList playList2Add = new PlayList();
+                        playList2Add.Id = newPlayList.Id;
+                        playList2Add.Name = newPlayList.Name;
+                        playList2Add.UserId = newPlayList.UserId;
+                        return await _repo.AddPlayListAsync(playList2Add);*/
+            Comments comment2Add = new Comments();
+            comment2Add.Comment = newComment.Comment;
+            comment2Add.CommentData = DateTime.Now;
+            comment2Add.Id = 0;
+            comment2Add.UploadMusicId = newComment.UploadMusicId;
+            comment2Add.UserId = newComment.UserId;
             //Todo: Add BL
-            return await _repo.AddCommentAsync(newComment);
+            return await _repo.AddCommentAsync(comment2Add);
         }
         public async Task<UploadMusic> DeleteUploadedMusicAsync(UploadMusic uploadedMusic2BDeleted)
         {
