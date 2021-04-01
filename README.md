@@ -13,7 +13,7 @@ they can easily be forgotten. Revmixer provides the framework for musicians to e
 - [X] A user can upload their music to a central hub
 - [X] Ability to view music uploaded by other musicians
 - [X] User can browse a gallery of updated music
-- [ ] User can add comments to uploaded music
+- [X] User can add comments to uploaded music
 - [X] User can create a playlist and add uploadedmusic to the playlist
 
 # Stretch Goal
