@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MixerBL;
 using MixerModels;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,12 +44,14 @@ namespace MixerREST.Controllers
             try
             {
                 await _mixerBL.AddCommentAsync(comment);
+                Log.Logger.Information($"comment from user with ID of {comment.Id} posted");
                 return CreatedAtAction("AddComment", comment);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                Console.WriteLine("Error message - " + e.Message);
-                return StatusCode(400);
+                Log.Logger.Error(e.Message);
+                return Ok(e.Message);
+
             }
         }
 
@@ -59,10 +62,12 @@ namespace MixerREST.Controllers
             try
             {
                 await _mixerBL.UpdateCommentAsync(comment);
+                Log.Logger.Information($"comment by user with ID {comment.UserId} updated to have the content: {comment.Comment}");
                 return NoContent();
             }
-            catch
+            catch (Exception e)
             {
+                Log.Logger.Error(e.Message);
                 return StatusCode(500);
             }
         }
