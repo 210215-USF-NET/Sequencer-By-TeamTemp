@@ -10,7 +10,7 @@ they can easily be forgotten. Revmixer provides the framework for musicians to e
 - [X] Ability to save projects
 - [X] User can play presets/patetrns
 - [X] Ability to export music samples
-- [ ] A user can upload their music to a central hub
+- [X] A user can upload their music to a central hub
 - [X] Ability to view music uploaded by other musicians
 - [X] User can browse a gallery of updated music
 - [ ] User can add comments to uploaded music
