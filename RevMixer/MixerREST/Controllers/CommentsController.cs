@@ -59,6 +59,10 @@ namespace MixerREST.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCommentAsync(int id, [FromBody] Comments comment)
         {
+            if (comment.Comment.Length < 1)
+            {
+                return StatusCode(400);
+            }
             try
             {
                 await _mixerBL.UpdateCommentAsync(comment);

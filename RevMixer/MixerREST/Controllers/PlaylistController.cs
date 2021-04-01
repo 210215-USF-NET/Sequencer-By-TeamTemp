@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MixerBL;
 using MixerModels;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,13 +45,15 @@ namespace MixerREST.Controllers
         {
             try
             {
+                Log.Logger.Information($"new music playlist with ID {playlist.Id} created");
                 await _mixerBL.AddPlayListAsync(playlist);
                 return CreatedAtAction("AddPlaylist", playlist);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                Console.WriteLine("Error Message - " + e.Message);
-                Console.WriteLine("Inner - " + e.InnerException.Message);
+                Log.Logger.Error($"Error thrown: {e.Message}");
+                /*                Console.WriteLine("Error Message - " + e.Message);
+                                Console.WriteLine("Inner - " + e.InnerException.Message);*/
                 return StatusCode(400);
             }
         }

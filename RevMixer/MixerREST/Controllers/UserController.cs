@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MixerBL;
 using MixerModels;
+using Serilog;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace MixerREST.Controllers
@@ -46,10 +47,12 @@ namespace MixerREST.Controllers
             try
             {
                 await _mixerBL.AddUserAsync(user);
+                Log.Logger.Information($"new User with ID {user.Id} created");
                 return CreatedAtAction("AddUser", user);
             }
-            catch
+            catch (Exception e)
             {
+                Log.Logger.Error($"Error thrown: {e.Message}");
                 return StatusCode(400);
             }
         }
