@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MixerBL;
 using MixerModels;
+using Serilog;
+using System;
 using System.Threading.Tasks;
 
 namespace MixerREST.Controllers
@@ -51,11 +53,14 @@ namespace MixerREST.Controllers
         {
             try
             {
+
                 await _mixerBL.AddUploadedMusicAsync(uploadedMusic);
+                Log.Logger.Information($"new song with ID {uploadedMusic.Id} created");
                 return CreatedAtAction("AddUploadedMusic", uploadedMusic);
             }
-            catch
+            catch (Exception e)
             {
+                Log.Logger.Error($"Error thrown uploading music: {e.Message}");
                 return StatusCode(400);
             }
         }
