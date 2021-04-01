@@ -41,6 +41,16 @@ namespace MixerTests
             Assert.IsAssignableFrom<CreatedAtActionResult>(result);
             _mixBLMock.Verify(x => x.AddSavedProjectAsync((It.IsAny<SavedProject>())));
         }
+         [Fact]
+        public async Task DeleteSavedProjectShouldDeleteSavedProject()
+        {
+            var save = new SavedProject{Id = 1};
+            _mixBLMock.Setup(x => x.DeleteSavedProjectAsync(It.IsAny<SavedProject>())).Returns(Task.FromResult<SavedProject>(save));
+            var savedProjectController = new SavedProjectsController(_mixBLMock.Object);
+            var result = await savedProjectController.DeleteSavedProjectAsync(save.Id);
+            Assert.IsAssignableFrom<NoContentResult>(result);
+            _mixBLMock.Verify(x => x.DeleteSavedProjectAsync((It.IsAny<SavedProject>())));
+        }
         
     }
 }

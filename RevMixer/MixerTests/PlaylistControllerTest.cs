@@ -41,6 +41,16 @@ namespace MixerTests
             Assert.IsAssignableFrom<CreatedAtActionResult>(result);
             _mixBLMock.Verify(x => x.AddPlayListAsync((It.IsAny<PlayList>())));
         }
+         [Fact]
+        public async Task DeletePlayListShouldDeletePlayList()
+        {
+            var playList = new PlayList{Id = 1};
+            _mixBLMock.Setup(x => x.DeletePlayListAsync(It.IsAny<PlayList>())).Returns(Task.FromResult<PlayList>(playList));
+            var playlistController = new PlaylistController(_mixBLMock.Object);
+            var result = await playlistController.DeletePlayListAsync(playList.Id);
+            Assert.IsAssignableFrom<NoContentResult>(result);
+            _mixBLMock.Verify(x => x.DeletePlayListAsync((It.IsAny<PlayList>())));
+        }
      
     }
 }
