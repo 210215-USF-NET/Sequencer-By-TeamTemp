@@ -41,10 +41,10 @@ namespace MixerTests
             Assert.IsAssignableFrom<CreatedAtActionResult>(result);
             _mixBLMock.Verify(x => x.AddUserAsync((It.IsAny<User>())));
         }
-         [Fact]
+        [Fact]
         public async Task DeleteUserShouldDeleteUser()
         {
-            var user = new User{Id = 1};
+            var user = new User { Id = 1 };
             _mixBLMock.Setup(x => x.DeleteUserAsync(It.IsAny<User>())).Returns(Task.FromResult<User>(user));
             var userController = new UserController(_mixBLMock.Object);
             var result = await userController.DeleteUserAsync(user.Id);
@@ -62,5 +62,17 @@ namespace MixerTests
             Assert.Equal(userEmail, ((User)((OkObjectResult)result).Value).Email);
             _mixBLMock.Verify(x => x.GetUserByEmail(userEmail));
         }
+        [Fact]
+        public async Task UpdateUserShouldUpdateUser()
+        {
+            var user = new User { Id = 1 };
+            _mixBLMock.Setup(x => x.UpdateUserAsync(It.IsAny<User>())).Returns(Task.FromResult(user));
+            var userController = new UserController(_mixBLMock.Object);
+            var result = await userController.UpdateUserAsync(user.Id, user);
+            Assert.IsAssignableFrom<NoContentResult>(result);
+            _mixBLMock.Verify(x => x.UpdateUserAsync(user));
+
+        }
+
     }
 }

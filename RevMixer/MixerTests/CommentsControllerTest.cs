@@ -41,6 +41,17 @@ namespace MixerTests
             Assert.IsAssignableFrom<CreatedAtActionResult>(result);
             _mixBLMock.Verify(x => x.AddCommentAsync((It.IsAny<Comments>())));
         }
+        [Fact]
+        public async Task UpdateCommentShouldUpdateComment()
+        {
+            var comment = new Comments { Id = 1 };
+            _mixBLMock.Setup(x => x.UpdateCommentAsync(It.IsAny<Comments>())).Returns(Task.FromResult(comment));
+            var commentController = new CommentsController(_mixBLMock.Object);
+            var result = await commentController.UpdateCommentAsync(comment.Id, comment);
+            Assert.IsAssignableFrom<NoContentResult>(result);
+            _mixBLMock.Verify(x => x.UpdateCommentAsync(comment));
+
+        }
      
     }
 }
