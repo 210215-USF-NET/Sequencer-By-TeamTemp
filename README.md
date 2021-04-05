@@ -13,7 +13,7 @@ RevMixer provides a platform for musicians to create, upload, and share music wi
 - Warren Hunt
     - Back-End, Unit Testing
 
-# Tech Stack
+# Technologies
 * C#
 * PostgreSql
 * Angular
