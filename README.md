@@ -24,6 +24,16 @@ RevMixer provides a platform for musicians to create, upload, and share music wi
 * GCP - APIs and Services
 * Azure Blob Storage
 
+# Project Links
+
+- [SonarCloud](https://sonarcloud.io/dashboard?id=210215-USF-NET_Sequencer-By-TeamTemp)
+
+- [Web Application](https://revmixer.azurewebsites.net/)
+
+- [Proposal](https://github.com/210215-USF-NET/Sequencer-By-TeamTemp/blob/main/project_proposal.md)
+
+- [Presentation](https://docs.google.com/presentation/d/1b7K_x92kA8Oxm5kve1Mz59IqpFVJnVbjrCYZ1MB8w8M/edit?ts=60662c15#slide=id.p)
+
 # Requirements
 - [X] At least 6 tables
 - [X] DB that is not SQL Server
